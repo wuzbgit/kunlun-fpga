@@ -1,0 +1,117 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+# Date created = 22:00:39  May 22, 2020
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		ECIDME_Pro_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M08SAE144C8GES
+set_global_assignment -name TOP_LEVEL_ENTITY ECIDME_Pro
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:00:39  MAY 22, 2020"
+set_global_assignment -name LAST_QUARTUS_VERSION 15.0.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_27 -to CLK
+set_location_assignment PIN_74 -to CLR
+set_location_assignment PIN_123 -to TP21
+set_location_assignment PIN_70 -to CPLD_WORK_LED
+set_location_assignment PIN_8 -to nSW_Standby
+set_location_assignment PIN_10 -to Panel_LED_YELLOW
+set_location_assignment PIN_11 -to Panel_LED_RED
+set_location_assignment PIN_12 -to Panel_LED_GREEN
+set_location_assignment PIN_7 -to FootSwitch1_Detect
+set_location_assignment PIN_134 -to FOOtSwitch2_Detect
+set_location_assignment PIN_141 -to FootSwitch1_MIN
+set_location_assignment PIN_6 -to FootSwitch1_MAX
+set_location_assignment PIN_135 -to FootSwitch2_MIN
+set_location_assignment PIN_140 -to FootSwitch2_MAX
+set_location_assignment PIN_132 -to Buck_Enable
+set_location_assignment PIN_127 -to Mos_Fault_Control
+set_location_assignment PIN_130 -to nSINK_TEMP_CHECK
+set_location_assignment PIN_131 -to nMOS_FAULT
+set_location_assignment PIN_124 -to nPOWER_FAULT
+set_location_assignment PIN_78 -to HP_SW_DETECT_LEVEL4
+set_location_assignment PIN_79 -to HP_SW_DETECT_LEVEL3
+set_location_assignment PIN_80 -to HP_SW_DETECT_LEVEL2
+set_location_assignment PIN_81 -to HP_SW_DETECT_LEVEL1
+set_location_assignment PIN_77 -to HP_DATA_WR
+set_location_assignment PIN_84 -to HP_TRANS_DRIVER
+set_location_assignment PIN_76 -to nHP_DETECT
+set_location_assignment PIN_85 -to I_CROSS_ZERO
+set_location_assignment PIN_86 -to V_CROSS_ZERO
+set_location_assignment PIN_88 -to RESONANCE_LEVEL_DETECT
+set_location_assignment PIN_56 -to nXZCS0_DSP
+set_location_assignment PIN_45 -to nXWE0_DSP
+set_location_assignment PIN_52 -to nXRD_DSP
+set_location_assignment PIN_46 -to ADDR_DSP[3]
+set_location_assignment PIN_47 -to ADDR_DSP[2]
+set_location_assignment PIN_48 -to ADDR_DSP[1]
+set_location_assignment PIN_50 -to ADDR_DSP[0]
+set_location_assignment PIN_69 -to XDATA_DSP[15]
+set_location_assignment PIN_66 -to XDATA_DSP[14]
+set_location_assignment PIN_65 -to XDATA_DSP[13]
+set_location_assignment PIN_64 -to XDATA_DSP[12]
+set_location_assignment PIN_62 -to XDATA_DSP[11]
+set_location_assignment PIN_61 -to XDATA_DSP[10]
+set_location_assignment PIN_60 -to XDATA_DSP[9]
+set_location_assignment PIN_59 -to XDATA_DSP[8]
+set_location_assignment PIN_58 -to XDATA_DSP[7]
+set_location_assignment PIN_57 -to XDATA_DSP[6]
+set_location_assignment PIN_54 -to XDATA_DSP[5]
+set_location_assignment PIN_55 -to XDATA_DSP[4]
+set_location_assignment PIN_39 -to XDATA_DSP[3]
+set_location_assignment PIN_41 -to XDATA_DSP[2]
+set_location_assignment PIN_43 -to XDATA_DSP[1]
+set_location_assignment PIN_44 -to XDATA_DSP[0]
+set_location_assignment PIN_75 -to SCITXDC_DSP
+set_location_assignment PIN_87 -to CURRENT_REF_PWM
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/debug.stp
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name SDC_FILE ECIDME_Pro.sdc
+set_global_assignment -name VERILOG_FILE Src/ECIDME_Pro.v
+set_global_assignment -name SIGNALTAP_FILE output_files/debug.stp
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

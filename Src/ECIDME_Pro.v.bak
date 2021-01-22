@@ -1,0 +1,1462 @@
+//--------------------------------------------------------------------------------
+// Company:        ECIDME
+// Engineer:       Rick.He
+// 
+// Create Date:    2020-05-22
+// Design Name:    ECIDME_Pro
+// Module Name:    ECIDME_Pro 
+// Target Devices: MAX10
+// Tool versions:  Quartus II 15.0
+// Description: Comunication with DSP.
+//
+//--------------------------------------------------------------------------------
+
+module (
+	input				CLK, 
+	input				CLR, 
+		
+	/*input [3:0]     	ADDR_DSP, 
+	inout [15:0]    	XDATA_DSP, 
+	input           	nXRD_DSP, 
+	input           	nXWE0_DSP, 
+	input           	nXZCS0_DSP, 
+		
+	output reg 			Buck_Enable, 
+	input				nPOWER_FAULT, 										
+	input				nMOS_FAULT, 
+	input				nSINK_TEMP_CHECK, 
+	output reg 			Mos_Fault_Control, 
+	input				RESONANCE_LEVEL_DETECT, 
+	output reg			CURRENT_REF_PWM, 
+						
+	output reg [1:0]	DAC_ADDR, 
+	output reg [11:0]	DAC_DATA, 
+	output reg			DAC_LDAC, 
+	output reg			DAC_nRW, 
+	output reg			DAC_CS, 
+	output reg			DAC_RESET, 
+	
+	output reg [7:0]	Audio_Select, 
+	output reg			Audio_IRP, 
+	input				Audio_STP, 
+	output				Audio_Atten_Load, 
+	output				Audio_Atten_Data, 
+	output				Audio_Atten_CLK, 
+	output reg			Audio_ShutDown, 
+	
+	output reg			Panel_LED_YELLOW, 
+	output reg			Panel_LED_GREEN, 
+	output reg			Panel_LED_RED, 
+	input				nSW_Standby, 
+	
+	input				nHP_DETECT, 
+	output reg			HP_DATA_WR, 
+	input				SCITXDC_DSP, 
+	
+	output				DDS_SCLK, 
+	output reg			DDS_SDATA, 
+	output				DDS_MCLK, 
+	output reg			DDS_FSYNC, 
+	output				DDS_SLEEP, 
+	output				DDS_RESET, 
+	
+	input				I_CROSS_ZERO, 
+	input				V_CROSS_ZERO, 
+	
+	output				HP_TRANS_DRIVER, 
+	input				HP_SW_DETECT_LEVEL1, 
+	input				HP_SW_DETECT_LEVEL2, 
+	input				HP_SW_DETECT_LEVEL3, 
+	input				HP_SW_DETECT_LEVEL4, 
+	
+	input				FootSwitch1_Detect, 
+	input				FootSwitch1_MAX, 
+	input				FootSwitch1_MIN, 
+	input				FOOtSwitch2_Detect, 
+	input				FootSwitch2_MAX, 
+	input				FootSwitch2_MIN, */
+	
+	output				CPLD_WORK_LED, 
+				
+	output	reg			CONF_DONE_IO138, 
+	output				TP21
+);
+
+   /*reg [3:0]        ADDR_DSP_TEMP;
+   wire [15:0]       XDATA_DSP_BUFFER;
+   reg [15:0]       XDATA_DSP_TEMP;
+   reg              nXRD_DSP_TEMP;
+   reg              nXWE0_DSP_TEMP;
+   reg              nXZCS0_DSP_TEMP;
+   reg [15:0]       XDATA_IN;
+   reg [15:0]       XDATA_OUT;
+   reg [3:0]        ADDR;
+   reg              nXRD;
+   reg              nXWE0;
+   reg              nXZCS0;
+   wire              nWBE0_RISING;
+   reg              tricontrol;
+   
+   reg [11:0]       Current_LEVEL_REF;
+   reg [11:0]       CURRENT_LEVEL_THRESHOLD;
+   reg [11:0]       UP_MOS_THRESHOLD;
+   reg [11:0]       DOWN_MOS_THRESHOLD;
+   
+   reg [11:0]       Current_LEVEL_REF_BUF;
+   reg [11:0]       UP_MOS_THRESHOLD_BUF;
+   reg [11:0]       DOWN_MOS_THRESHOLD_BUF;
+   reg [11:0]       Multiplier_Cal;
+   reg [11:0]       Multiplier_Cal_BUF;
+   
+   reg [1:0]        POWER_ENABLE;
+   
+   reg              RESET_FAULT;
+   reg              nPOWER_FAULT_BUF;
+   reg              nMOS_FAULT_BUF;
+   reg              nSINK_TEMP_CHECK_BUF;
+   reg              RESONANCE_LEVEL_DETECT_BUF;
+   
+   reg [7:0]        Audio_Atten;
+   reg              AUDIO_SPI_CLK;
+   reg              AUDIO_LOAD_BUF;
+   reg              Audio_Atten_Data_BUF;
+   reg [7:0]        Audio_Select_BUF;
+   reg [10:0]       AUDIO_CONTROL_BUF;
+   reg              AUDIO_PLAY_MODE;
+   reg              AUDIO_AP8942A_IRP_BUF;
+   
+   wire [11:0]      Fre_Resonance_V;
+   wire [11:0]      V_RESONANCE_COUNTER;
+   reg              V_CROSS_ZERO_TEMP;
+   reg              V_CROSS_ZERO_BUF;
+   reg              V_CROSS_ZERO_RISING;
+   reg              V_CROSS_ZERO_FALLING;
+   reg [15:0]       Fre_Resonance_I;
+   reg [15:0]       I_RESONANCE_COUNTER;
+   reg              I_CROSS_ZERO_TEMP;
+   reg              I_CROSS_ZERO_BUF;
+   reg              I_CROSS_ZERO_RISING;
+   reg              I_CROSS_ZERO_FALLING;
+   wire [11:0]      Phase_Differenc;
+   wire [11:0]      Phase_Diff_COUNTER;
+   
+   reg [15:0]       PHASE_RISING_COUNTER;
+   reg [15:0]       PHASE_FALLING_COUNTER;
+   reg [15:0]       PHASE_RISING_DIFF;
+   reg [15:0]       PHASE_FALLING_DIFF;
+   reg              I_V_LEAD_LAG_RISING;
+   reg              I_V_LEAD_LAG_FALLING;
+   
+   wire             I_XOR_V;
+   wire             I_XOR_V_BUF;
+   wire             I_XOR_V_TEMP;
+   wire             I_XOR_V_RISING;
+   wire             I_XOR_V_FALLING;
+   
+   wire             I_LEAD;
+   wire             V_LEAD;
+   wire             I_V_PHASE_SIGNAL;
+   wire             I_V_PHASE_SIGNAL_TEMP;
+   wire             I_V_PHASE_SIGNAL_RISING;
+   wire             I_V_PHASE_SIGNAL_FALLING;
+   wire             PHASE_DIFFER_SIGN;
+   
+   parameter [1:0]  PHASE_STATE_TYPE_IDLE = 0,
+                    PHASE_STATE_TYPE_LEAD = 1,
+                    PHASE_STATE_TYPE_LAG = 2,
+                    PHASE_STATE_TYPE_DELTA = 3;
+   
+   reg [1:0]        PHASE_RISING_PRESENT_STATE;
+   reg [1:0]        PHASE_RISING_NEXT_STATE;
+   reg [1:0]        PHASE_FALLING_PRESENT_STATE;
+   reg [1:0]        PHASE_FALLING_NEXT_STATE;
+   
+   reg              CPLD_WORK_LED_BUF;
+   
+   parameter [3:0]  STATE_TYPE_S0 = 4'b0000,
+                    STATE_TYPE_S1 = 4'b0001,
+                    STATE_TYPE_S2 = 4'b0011,
+                    STATE_TYPE_S3 = 4'b0010,
+                    STATE_TYPE_S4 = 4'b0110,
+                    STATE_TYPE_S5 = 4'b0111,
+                    STATE_TYPE_S6 = 4'b0101,
+                    STATE_TYPE_S7 = 4'b0100,
+                    STATE_TYPE_S8 = 4'b1000,
+                    STATE_TYPE_S9 = 4'b1001,
+                    STATE_TYPE_S10 = 4'b1011,
+                    STATE_TYPE_S11 = 4'b1010,
+                    STATE_TYPE_S12 = 4'b1110,
+                    STATE_TYPE_S13 = 4'b1111,
+                    STATE_TYPE_S14 = 4'b1101,
+                    STATE_TYPE_S15 = 4'b1100;
+   
+   reg [3:0]        DAC_PRESENT_STATE;
+   reg [3:0]        DAC_NEXT_STATE;
+   reg              DAC_UP_MOS_UPDATE;
+   
+   reg [3:0]        DDS_PRESENT_STATE;
+   reg [3:0]        DDS_NEXT_STATE;
+   reg [15:0]       DDS_DATA_CONTROL_REG;
+   reg [15:0]       DDS_DATA_CONTROL_BUF;
+   reg [27:0]       DDS_DATA_FREQ0_REG;
+   reg [27:0]       DDS_DATA_FREQ0_BUF;
+   reg [15:0]       DDS_DATA_BUF;
+   integer          DDS_COUNTER;
+   reg              DDS_DATA_UPDATE;
+   reg              DDS_FSYNC_BUF;
+   reg              DDS_FREQ_SEL;
+   reg [3:0]        DDS_MCLK_DIVID_FRE;
+   reg              DDS_MCLK_BUF;
+   reg              DDS_RESET_BUF;
+   
+   reg [10:0]       tri_DATA_PWM;
+   
+   reg              PANEL_LED_YELLOW_BUF;
+   reg              PANEL_LED_RED_BUF;
+   reg              PANEL_LED_GREEN_BUF;
+   reg              PANEL_TOUCH_SW_BUF;
+   reg              HP_MAX_DETECT_BUF;
+   reg              HP_MIN_DETECT_BUF;
+   reg              HP_DETECT_BUF;
+   reg              FootSwitch1_MAX_BUF;
+   reg              FootSwitch1_MIN_BUF;
+   reg              FOOtSwitch1_Detect_BUF;
+   reg              FootSwitch2_MAX_BUF;
+   reg              FootSwitch2_MIN_BUF;
+   reg              FOOtSwitch2_Detect_BUF;
+   reg              HP_TRANS_DRIVER_BUF;
+   
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //Data synchronization between FPGA and DSP
+   assign XDATA_DSP_BUFFER = XDATA_DSP;
+   always @(posedge CLK)
+   begin: SYNC_DATA
+		XDATA_DSP_TEMP <= XDATA_DSP_BUFFER; //XDATA
+		XDATA_IN <= XDATA_DSP_TEMP;
+		ADDR_DSP_TEMP <= ADDR_DSP;		//ADDR
+		ADDR <= ADDR_DSP_TEMP;
+		nXZCS0_DSP_TEMP <= nXZCS0_DSP;	 //nXZCS0
+		nXZCS0 <= nXZCS0_DSP_TEMP;
+		nXRD_DSP_TEMP <= nXRD_DSP;		 //nXRD
+		nXRD <= nXRD_DSP_TEMP;
+		nXWE0_DSP_TEMP <= nXWE0_DSP;		//nWE0
+		nXWE0 <= nXWE0_DSP_TEMP; 
+   end
+   assign nWBE0_RISING = ((~nXWE0)) & nXWE0_DSP_TEMP;
+   
+   //Data from DSP to FPGA
+   always @(negedge CLR or posedge CLK)
+   begin: DSP_TO_FPGA
+      if (!CLR)
+      begin
+         RESET_FAULT <= 1'b0;
+         Current_LEVEL_REF <= 12'b000000000000;
+         UP_MOS_THRESHOLD <= 12'b000000000000;
+         DOWN_MOS_THRESHOLD <= 12'b000000000000;
+         Multiplier_Cal <= 12'b000000000000;
+         DAC_UP_MOS_UPDATE <= 1'b0;
+         POWER_ENABLE <= 2'b00;
+         Audio_Select_BUF <= 8'b00000000;
+         AUDIO_CONTROL_BUF <= 11'b00000000000;
+         DDS_DATA_CONTROL_REG <= 16'b0000000000000000;
+         DDS_DATA_FREQ0_REG <= 28'b0000000000000000000000000000;
+         DDS_FREQ_SEL <= 1'b0;
+         DDS_DATA_UPDATE <= 1'b0;
+         PANEL_LED_YELLOW_BUF <= 1'b1;
+         PANEL_LED_RED_BUF <= 1'b1;
+         PANEL_LED_GREEN_BUF <= 1'b1;
+      end
+      else 
+      begin
+         if (nWBE0_RISING == 1'b1)
+         begin
+            if (nXZCS0 == 1'b0 & ADDR == 4'b0000)			//0X004000 RESET_FAULT
+               RESET_FAULT <= XDATA_IN[0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0001)		 //0X004002 Current_LEVEL_REF
+               Current_LEVEL_REF <= XDATA_IN[11:0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0010)		//0X004004 UP_MOS_THRESHOLD
+            begin
+               UP_MOS_THRESHOLD <= XDATA_IN[11:0];
+               DAC_UP_MOS_UPDATE <= 1'b0;
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0011)		//0X004006 DOWN_MOS_THRESHOLD
+            begin
+               DOWN_MOS_THRESHOLD <= XDATA_IN[11:0];
+               DAC_UP_MOS_UPDATE <= 1'b1;
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0100)		//0X004008 Multiplier Calibration
+               Multiplier_Cal <= XDATA_IN[11:0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0101)		//0X00400A	POWER ENABLE and detect		
+               POWER_ENABLE <= XDATA_IN[1:0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0110)		//0X00400C AP8942 CONTROL	
+            begin
+               Audio_Select_BUF <= XDATA_IN[7:0];
+               AUDIO_PLAY_MODE <= XDATA_IN[8];
+               AUDIO_AP8942A_IRP_BUF <= XDATA_IN[9];
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b0111)		//0X00400E LM1971 AND LM4871 CONTROL
+               AUDIO_CONTROL_BUF <= XDATA_IN[10:0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b1000)		//0X004010 PANEL HANDPIECE FOOTSWITCH	
+            begin
+               PANEL_LED_YELLOW_BUF <= XDATA_IN[0];
+               PANEL_LED_RED_BUF <= XDATA_IN[1];
+               PANEL_LED_GREEN_BUF <= XDATA_IN[2];
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b1001)		//0X004012	Resonant current threshold
+               CURRENT_LEVEL_THRESHOLD <= XDATA_IN[11:0];
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b1010)		//0X004014 DDS Control		
+            begin
+               DDS_DATA_CONTROL_REG <= XDATA_IN;
+               DDS_DATA_UPDATE <= 1'b1;
+               DDS_RESET_BUF <= 1'b1;
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b1011)		//0X004016 Reserved	
+            begin
+               DDS_DATA_FREQ0_REG[13:0] <= XDATA_IN[13:0];
+               DDS_DATA_UPDATE <= 1'b0;
+               DDS_RESET_BUF <= 1'b0;
+            end
+            else if (nXZCS0 == 1'b0 & ADDR == 4'b1100)		//0X004018 Reserved		
+            begin
+               DDS_DATA_FREQ0_REG[27:14] <= XDATA_IN[13:0];
+               DDS_FREQ_SEL <= (~DDS_FREQ_SEL);
+               DDS_DATA_UPDATE <= 1'b1;
+               DDS_RESET_BUF <= 1'b0;
+            end
+            else
+               ;
+         end
+      end
+   end
+   
+   //Data from FPAG to DSP	
+   always @(*)
+    begin: FPGA_TO_DSP
+      if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0000)			 //0X004000 RESET_FAULT
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= 16'b0001000000010001;
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0001)		//0X004002 Current_LEVEL_REF
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, Current_LEVEL_REF};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0010)		//0X004004 UP_MOS_THRESHOLD
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, UP_MOS_THRESHOLD};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0011)		//0X004006 DOWN_MOS_THRESHOLD
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, DOWN_MOS_THRESHOLD};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0100)		//0X004008 Multiplier Calibration
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, Multiplier_Cal};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0101)		//0X00400A POWER ENABLE and detect
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {10'b0000000000, ((~RESONANCE_LEVEL_DETECT_BUF)), ((~nSINK_TEMP_CHECK_BUF)), ((~nMOS_FAULT_BUF)), ((~nPOWER_FAULT_BUF)), POWER_ENABLE};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0110)		//0X00400C AP8942 CONTROL
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {5'b00000, Audio_STP, AUDIO_AP8942A_IRP_BUF, AUDIO_PLAY_MODE, Audio_Select_BUF};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b0111)		//0X00400E LM1971 AND LM4871 CONTROL
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {6'b000000, AUDIO_CONTROL_BUF[9], 1'b0, AUDIO_CONTROL_BUF[7:0]};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1000)		//0X004010 PANEL HANDPIECE FOOTSWITCH
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {3'b000, FOOtSwitch2_Detect_BUF, FootSwitch2_MIN_BUF, FootSwitch2_MAX_BUF, FOOtSwitch1_Detect_BUF, FootSwitch1_MIN_BUF, FootSwitch1_MAX_BUF, HP_DETECT_BUF, HP_MIN_DETECT_BUF, HP_MAX_DETECT_BUF, PANEL_TOUCH_SW_BUF, PANEL_LED_GREEN_BUF, PANEL_LED_RED_BUF, PANEL_LED_YELLOW_BUF};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1001)		//0X004012 Resonant current threshold	
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, CURRENT_LEVEL_THRESHOLD};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1010)		//0X004014 DDS Control
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= DDS_DATA_CONTROL_REG;
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1011)		//0X004016 reserved
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, DDS_DATA_FREQ0_REG[11:0]};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1100)		//0X004018 reserved
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= {4'b0000, DDS_DATA_FREQ0_REG[23:12]};
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1101)		//0X00401A resonant frequency
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= Fre_Resonance_I;
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1110)		//0X00401C phase difference
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= PHASE_RISING_DIFF;
+      end
+      else if (nXZCS0 == 1'b0 & nXRD == 1'b0 & ADDR == 4'b1111)		//0X00401E version
+      begin
+         tricontrol <= 1'b1;
+         XDATA_OUT <= PHASE_FALLING_DIFF;
+      end
+      else
+      begin
+         tricontrol <= 1'b0;
+         XDATA_OUT <= 16'b1111111111111111;
+      end
+   end
+   
+   assign XDATA_DSP = (tricontrol == 1'b1) ? XDATA_OUT : 
+                      16'bZZZZZZZZZZZZZZZZ;
+   
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   always @(*)
+   begin: POWER_CONTROL
+      if (!CLR)
+      begin
+         Buck_Enable <= 1'b0;			//Disable buck UC3824
+         Mos_Fault_Control <= 1'b0;		//Disable push_pull bridge
+         CONF_DONE_IO138 <= 1'b0;
+      end
+      else
+      begin
+         Buck_Enable <= POWER_ENABLE[0] & nMOS_FAULT_BUF & nSINK_TEMP_CHECK_BUF & nPOWER_FAULT_BUF & RESONANCE_LEVEL_DETECT_BUF;
+         Mos_Fault_Control <= (~(POWER_ENABLE[1] & nMOS_FAULT_BUF & nSINK_TEMP_CHECK_BUF & nPOWER_FAULT_BUF & RESONANCE_LEVEL_DETECT_BUF));
+         CONF_DONE_IO138 <= (~(POWER_ENABLE[1] & nMOS_FAULT_BUF & nSINK_TEMP_CHECK_BUF & nPOWER_FAULT_BUF & RESONANCE_LEVEL_DETECT_BUF));
+      end
+   end
+   //xxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		  
+   //FAULT LATCH PROCESS
+   always @(*)
+   begin: FAULT_LATCH
+      if (RESET_FAULT == 1'b1)
+         nPOWER_FAULT_BUF <= 1'b1;
+      else if (nPOWER_FAULT == 1'b0)  		// +15VD -15VDC +5VDC +48VDC FAULT
+         nPOWER_FAULT_BUF <= 1'b0;
+      else
+         ;
+      
+      if (RESET_FAULT == 1'b1)
+         nMOS_FAULT_BUF <= 1'b1;			// MOS FAULT
+      else if (nMOS_FAULT == 1'b0)
+         nMOS_FAULT_BUF <= 1'b0;
+      else
+         ;
+      
+      if (RESET_FAULT == 1'b1)
+         nSINK_TEMP_CHECK_BUF <= 1'b1;
+      else if (nSINK_TEMP_CHECK == 1'b1)	 //Temperature switch 67L090 is normal CLOSE to GND.
+         nSINK_TEMP_CHECK_BUF <= 1'b0;
+      else
+         ;
+      
+      if (RESET_FAULT == 1'b1)
+         RESONANCE_LEVEL_DETECT_BUF <= 1'b1;
+      else if (RESONANCE_LEVEL_DETECT == 1'b0)
+         RESONANCE_LEVEL_DETECT_BUF <= 1'b0;
+      else
+         ;
+   end
+   
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //DAC AD5725
+   //STATE CONVERT
+   always @(posedge CLK or negedge CLR)
+   begin: DAC_STATE_CONVERT
+      if (!CLR)
+         DAC_PRESENT_STATE <= STATE_TYPE_S0;
+      else 
+         DAC_PRESENT_STATE <= DAC_NEXT_STATE;
+   end
+   
+   // Logic to the next state
+   always @(*)
+   begin: DAC_LOGIC_STATE
+      case (DAC_PRESENT_STATE)
+         STATE_TYPE_S0 :
+            if ((Current_LEVEL_REF == Current_LEVEL_REF_BUF) & (((UP_MOS_THRESHOLD == UP_MOS_THRESHOLD_BUF) & (DOWN_MOS_THRESHOLD == DOWN_MOS_THRESHOLD_BUF)) | (DAC_UP_MOS_UPDATE == 1'b0)) & (Multiplier_Cal == Multiplier_Cal_BUF))
+               DAC_NEXT_STATE <= STATE_TYPE_S0;
+            else
+               DAC_NEXT_STATE <= STATE_TYPE_S1;
+         STATE_TYPE_S1 :
+            DAC_NEXT_STATE <= STATE_TYPE_S2;
+         STATE_TYPE_S2 :
+            DAC_NEXT_STATE <= STATE_TYPE_S3;
+         STATE_TYPE_S3 :
+            DAC_NEXT_STATE <= STATE_TYPE_S4;
+         STATE_TYPE_S4 :
+            DAC_NEXT_STATE <= STATE_TYPE_S5;
+         STATE_TYPE_S5 :
+            DAC_NEXT_STATE <= STATE_TYPE_S6;
+         STATE_TYPE_S6 :
+            DAC_NEXT_STATE <= STATE_TYPE_S7;
+         STATE_TYPE_S7 :
+            DAC_NEXT_STATE <= STATE_TYPE_S8;
+         STATE_TYPE_S8 :
+            DAC_NEXT_STATE <= STATE_TYPE_S9;
+         STATE_TYPE_S9 :
+            DAC_NEXT_STATE <= STATE_TYPE_S10;
+         STATE_TYPE_S10 :
+            DAC_NEXT_STATE <= STATE_TYPE_S11;
+         STATE_TYPE_S11 :
+            DAC_NEXT_STATE <= STATE_TYPE_S0;
+         default :
+            DAC_NEXT_STATE <= STATE_TYPE_S0;
+      endcase
+   end
+   
+   // Output depends solely on the current state,
+   always @(DAC_PRESENT_STATE)
+   begin: DAC_TIME
+      case (DAC_PRESENT_STATE)
+         STATE_TYPE_S0 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b1;
+               DAC_ADDR <= 2'b00;
+            end
+         STATE_TYPE_S1 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b1;
+               DAC_ADDR <= 2'b00;
+            end
+         STATE_TYPE_S2 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b0;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b00;
+            end
+         STATE_TYPE_S3 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b01;
+            end
+         STATE_TYPE_S4 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b0;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b01;
+            end
+         STATE_TYPE_S5 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b10;
+            end
+         STATE_TYPE_S6 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b0;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b10;
+            end
+         STATE_TYPE_S7 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b11;
+            end
+         STATE_TYPE_S8 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b0;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b11;
+            end
+         STATE_TYPE_S9 :
+            begin
+               DAC_LDAC <= 1'b0;
+               DAC_CS <= 1'b0;
+               DAC_nRW <= 1'b0;
+               DAC_ADDR <= 2'b11;
+            end
+         STATE_TYPE_S10 :
+            begin
+               DAC_LDAC <= 1'b0;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b1;
+               DAC_ADDR <= 2'b11;
+            end
+         STATE_TYPE_S11 :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b1;
+               DAC_ADDR <= 2'b11;
+            end
+         default :
+            begin
+               DAC_LDAC <= 1'b1;
+               DAC_CS <= 1'b1;
+               DAC_nRW <= 1'b1;
+               DAC_ADDR <= 2'b11;
+            end
+      endcase
+   end
+   
+   //DAC OUTPUT
+   always @(*)
+   begin: DAC_OUTPUT
+      
+      case (DAC_PRESENT_STATE)
+         STATE_TYPE_S1, STATE_TYPE_S2 :
+            begin
+               DAC_DATA <= Current_LEVEL_REF;
+               Current_LEVEL_REF_BUF <= Current_LEVEL_REF;
+            end
+         STATE_TYPE_S3, STATE_TYPE_S4 :
+            begin
+               DAC_DATA <= UP_MOS_THRESHOLD;
+               UP_MOS_THRESHOLD_BUF <= UP_MOS_THRESHOLD;
+            end
+         STATE_TYPE_S5, STATE_TYPE_S6 :
+            begin
+               DAC_DATA <= DOWN_MOS_THRESHOLD;
+               DOWN_MOS_THRESHOLD_BUF <= DOWN_MOS_THRESHOLD;
+            end
+         STATE_TYPE_S7, STATE_TYPE_S8, STATE_TYPE_S9, STATE_TYPE_S10, STATE_TYPE_S11, STATE_TYPE_S12, STATE_TYPE_S13, STATE_TYPE_S14 :
+            begin
+               DAC_DATA <= Multiplier_Cal;
+               Multiplier_Cal_BUF <= Multiplier_Cal;
+            end
+         default :
+            ;
+      endcase
+      
+      DAC_RESET <= 1'b1;
+   end
+   
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //DDS AD9834
+   //  DDS MAIN CLOCK //5MHz
+   always @(negedge CLR or posedge CLK)
+   begin: DDS_MAIN_DIV
+      if (!CLR)
+         DDS_MCLK_DIVID_FRE <= 4'b0000;
+      else 
+      begin
+         if (DDS_MCLK_DIVID_FRE == 4'b1001)
+            DDS_MCLK_DIVID_FRE <= 4'b0000;
+         else
+            DDS_MCLK_DIVID_FRE <= DDS_MCLK_DIVID_FRE + 1'b1;
+      end
+   end
+   
+   
+   always @(negedge CLR or posedge CLK)
+   begin: DDS_MAIN_CLOCK
+      if (!CLR)
+         DDS_MCLK_BUF <= 1'b0;
+      else 
+         case (DDS_MCLK_DIVID_FRE)
+            4'b0000 :
+               DDS_MCLK_BUF <= 1'b0;		// 160 DIVID FREQUENCY
+            4'b0101 :
+               DDS_MCLK_BUF <= 1'b1;		// 160 DIVID FREQUENCY 
+            default :
+               ;
+         endcase
+   end
+   
+   //STATE CONVERT
+   always @(posedge DDS_MCLK_BUF or negedge CLR)
+   begin: DDS_STATE_CONVERT
+      if (!CLR)
+         DDS_PRESENT_STATE <= STATE_TYPE_S0;
+      else 
+         DDS_PRESENT_STATE <= DDS_NEXT_STATE;
+   end
+   
+   //Logic to the next state
+   always @(*)
+   begin: DDS_LOGIC_STATE
+      case (DDS_PRESENT_STATE)
+         STATE_TYPE_S0 :
+            DDS_NEXT_STATE <= STATE_TYPE_S1;
+         STATE_TYPE_S1 :
+            if (DDS_COUNTER == 15)
+               DDS_NEXT_STATE <= STATE_TYPE_S2;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S1;
+         STATE_TYPE_S2 :
+            if (DDS_DATA_UPDATE == 1'b1)
+               DDS_NEXT_STATE <= STATE_TYPE_S3;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S2;
+         STATE_TYPE_S3 :
+            if (DDS_COUNTER == 15)
+               DDS_NEXT_STATE <= STATE_TYPE_S4;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S3;
+         STATE_TYPE_S4 :
+            DDS_NEXT_STATE <= STATE_TYPE_S5;
+         STATE_TYPE_S5 :
+            if (DDS_COUNTER == 15)
+               DDS_NEXT_STATE <= STATE_TYPE_S6;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S5;
+         STATE_TYPE_S6 :
+            DDS_NEXT_STATE <= STATE_TYPE_S7;
+         STATE_TYPE_S7 :
+            if (DDS_COUNTER == 15)
+               DDS_NEXT_STATE <= STATE_TYPE_S8;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S7;
+         STATE_TYPE_S8 :
+            DDS_NEXT_STATE <= STATE_TYPE_S2;
+         STATE_TYPE_S9 :
+            DDS_NEXT_STATE <= STATE_TYPE_S10;
+         STATE_TYPE_S10 :
+            if (DDS_COUNTER == 15)
+               DDS_NEXT_STATE <= STATE_TYPE_S11;
+            else
+               DDS_NEXT_STATE <= STATE_TYPE_S10;
+         STATE_TYPE_S11 :
+            DDS_NEXT_STATE <= STATE_TYPE_S2;
+         default :
+            DDS_NEXT_STATE <= STATE_TYPE_S0;
+      endcase
+   end
+   
+//Output depends solely on the current state,
+//DDS_SPI_STA         ----____----____----____----____----
+//FSYNC               ----____----____----____----____----
+//DDS_PRESENT_STATE    S0  S1  S2  S3  S4  S5  S6  S7  S0
+//
+   always @(posedge DDS_MCLK_BUF)
+   begin: DDS_TIME
+        case (DDS_PRESENT_STATE)
+           STATE_TYPE_S0, STATE_TYPE_S2, STATE_TYPE_S4, STATE_TYPE_S6, STATE_TYPE_S8, STATE_TYPE_S9, STATE_TYPE_S11 :
+              begin
+                 DDS_FSYNC <= 1'b1;
+                 DDS_FSYNC_BUF <= 1'b1;
+                 DDS_COUNTER <= 0;
+              end
+           STATE_TYPE_S1, STATE_TYPE_S3, STATE_TYPE_S5, STATE_TYPE_S7, STATE_TYPE_S10 :
+              begin
+                 DDS_FSYNC <= 1'b0;
+                 DDS_FSYNC_BUF <= 1'b0;
+                 DDS_SDATA <= DDS_DATA_BUF[15];
+                 DDS_DATA_BUF[15:1] <= DDS_DATA_BUF[14:0];
+                 DDS_COUNTER <= DDS_COUNTER + 1;
+              end
+           default :
+              begin
+                 DDS_FSYNC <= 1'b1;
+                 DDS_FSYNC_BUF <= 1'b1;
+                 DDS_COUNTER <= 0;
+              end
+        endcase
+        
+        case (DDS_PRESENT_STATE)
+           STATE_TYPE_S0 :
+              if (DDS_FREQ_SEL == 1'b0)
+                 DDS_DATA_BUF <= 16'b0010000100000000;//DDS_DATA_CONTROL_REG;
+              else
+                 DDS_DATA_BUF <= 16'b0010100100000000;//DDS_DATA_CONTROL_REG;
+           STATE_TYPE_S2 :
+              if (DDS_FREQ_SEL == 1'b0)
+                 DDS_DATA_BUF <= {2'b01, DDS_DATA_FREQ0_REG[13:0]};
+              else
+                 DDS_DATA_BUF <= {2'b10, DDS_DATA_FREQ0_REG[13:0]};
+           STATE_TYPE_S4 :
+              if (DDS_FREQ_SEL == 1'b0)
+                 DDS_DATA_BUF <= {2'b01, DDS_DATA_FREQ0_REG[27:14]};
+              else
+                 DDS_DATA_BUF <= {2'b10, DDS_DATA_FREQ0_REG[27:14]};
+           STATE_TYPE_S6 :
+              begin
+                 if (DDS_FREQ_SEL == 1'b0 & DDS_RESET_BUF == 1'b0)
+                    DDS_DATA_BUF <= 16'b0010000000000000;//DDS_DATA_CONTROL_REG;
+                 else if (DDS_FREQ_SEL == 1'b0 & DDS_RESET_BUF == 1'b1)
+                    DDS_DATA_BUF <= 16'b0010000111000000;
+                 else if (DDS_FREQ_SEL == 1'b1 & DDS_RESET_BUF == 1'b0)
+                    DDS_DATA_BUF <= 16'b0010100000000000;//DDS_DATA_CONTROL_REG;
+                 else if (DDS_FREQ_SEL == 1'b1 & DDS_RESET_BUF == 1'b1)
+                    DDS_DATA_BUF <= 16'b0010100111000000;//DDS_DATA_CONTROL_REG;
+                 else
+                    ;
+                 DDS_DATA_FREQ0_BUF <= DDS_DATA_FREQ0_REG;
+              end
+           STATE_TYPE_S9 :
+              begin
+                 DDS_DATA_BUF <= DDS_DATA_CONTROL_REG;
+                 DDS_DATA_CONTROL_BUF <= DDS_DATA_CONTROL_REG;
+              end
+           default :
+              ;
+        endcase
+   end
+   
+   assign DDS_SLEEP = 1'b1;//DDS AD9834 POWER OFF
+   assign DDS_RESET = 1'b1;//high level active
+   assign DDS_MCLK = DDS_MCLK_BUF;
+   assign DDS_SCLK = (DDS_FSYNC_BUF == 1'b0) ? DDS_MCLK_BUF : 
+                     1'b1;
+   
+	//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	//ONE WIRE PROCESS
+   always @(*)
+   begin: ONE_WIRE
+      HP_DATA_WR <= (~SCITXDC_DSP);
+      HP_DETECT_BUF <= (~nHP_DETECT);
+   end
+	//PAHSE
+	//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	//Caculate resonce current frequency
+   always @(posedge CLK or negedge CLR or posedge I_CROSS_ZERO_RISING)
+   begin: I_RESONANCE_FREQUENCY
+      if (CLR == 1'b0 | I_CROSS_ZERO_RISING == 1'b1)
+         I_RESONANCE_COUNTER <= 16'b0000000000000000;
+      else 
+      begin
+         if (I_CROSS_ZERO_BUF == 1'b1)
+            I_RESONANCE_COUNTER <= I_RESONANCE_COUNTER + 1'b1;
+      end
+   end
+   
+   always @(*)
+   begin
+		if (I_CROSS_ZERO_FALLING == 1'b1)
+			Fre_Resonance_I <= I_RESONANCE_COUNTER;
+		else
+			;
+   end
+	//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	//PHASE LM361
+	//Data SYNC I_CROSS_ZERO and V_CROSS_ZERO between FPGA and LM361
+   always @(posedge CLK)
+   begin: SYNC_I_V_CROSS_ZERO
+		I_CROSS_ZERO_TEMP <= I_CROSS_ZERO;		//I_CROSS_ZERO
+		I_CROSS_ZERO_BUF <= I_CROSS_ZERO_TEMP;
+		V_CROSS_ZERO_TEMP <= V_CROSS_ZERO;		//V_CROSS_ZERO
+		V_CROSS_ZERO_BUF <= V_CROSS_ZERO_TEMP;
+		
+		I_CROSS_ZERO_RISING <= I_CROSS_ZERO_TEMP & ((~I_CROSS_ZERO_BUF));
+		V_CROSS_ZERO_RISING <= V_CROSS_ZERO_TEMP & ((~V_CROSS_ZERO_BUF));
+		I_CROSS_ZERO_FALLING <= ((~I_CROSS_ZERO_TEMP)) & I_CROSS_ZERO_BUF;
+		V_CROSS_ZERO_FALLING <= ((~V_CROSS_ZERO_TEMP)) & V_CROSS_ZERO_BUF;
+   end
+   
+   //STATE CONVERT
+   always @(posedge CLK or negedge CLR)
+   begin: PHASE_RISING_STATE_CONVERT
+      if (!CLR)
+         PHASE_RISING_PRESENT_STATE <= PHASE_STATE_TYPE_IDLE;
+      else 
+         PHASE_RISING_PRESENT_STATE <= PHASE_RISING_NEXT_STATE;
+   end
+   
+   
+   always @(posedge CLK or negedge CLR)
+   begin: PHASE_FALING_STATE_CONVERT
+      if (!CLR)
+         PHASE_FALLING_PRESENT_STATE <= PHASE_STATE_TYPE_IDLE;
+      else 
+         PHASE_FALLING_PRESENT_STATE <= PHASE_FALLING_NEXT_STATE;
+   end
+   //PHASE Logic to the next state
+   always @(*)
+   begin: PHASE_RISING_LOGIC_STATE
+      
+      case (PHASE_RISING_PRESENT_STATE)
+         PHASE_STATE_TYPE_IDLE :
+            if (I_CROSS_ZERO_RISING == 1'b1 & V_CROSS_ZERO_RISING == 1'b0)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_LEAD;
+            else if (I_CROSS_ZERO_RISING == 1'b0 & V_CROSS_ZERO_RISING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_LAG;
+            else if (I_CROSS_ZERO_RISING == 1'b1 & V_CROSS_ZERO_RISING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+         PHASE_STATE_TYPE_LEAD :
+            if (I_CROSS_ZERO_FALLING == 1'b1 | V_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else if (V_CROSS_ZERO_RISING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_LEAD;
+         PHASE_STATE_TYPE_LAG :
+            if (I_CROSS_ZERO_FALLING == 1'b1 | V_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else if (I_CROSS_ZERO_RISING == 1'b1)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_LAG;
+         PHASE_STATE_TYPE_DELTA :
+            if (I_CROSS_ZERO_BUF == 1'b0 & I_CROSS_ZERO_BUF == 1'b0)
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else
+               PHASE_RISING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+         default :
+            ;
+      endcase
+   end
+   
+   
+   always @(*)
+   begin: PHASE_FALLING_LOGIC_STATE
+      
+      case (PHASE_FALLING_PRESENT_STATE)
+         PHASE_STATE_TYPE_IDLE :
+            if (I_CROSS_ZERO_FALLING == 1'b1 & V_CROSS_ZERO_FALLING == 1'b0)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_LEAD;
+            else if (I_CROSS_ZERO_FALLING == 1'b0 & V_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_LAG;
+            else if (I_CROSS_ZERO_FALLING == 1'b1 & V_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+         PHASE_STATE_TYPE_LEAD :
+            if (I_CROSS_ZERO_RISING == 1'b1 | V_CROSS_ZERO_RISING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else if (V_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_LEAD;
+         PHASE_STATE_TYPE_LAG :
+            if (I_CROSS_ZERO_RISING == 1'b1 | V_CROSS_ZERO_RISING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else if (I_CROSS_ZERO_FALLING == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+            else
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_LAG;
+         PHASE_STATE_TYPE_DELTA :
+            if (I_CROSS_ZERO_BUF == 1'b1 & I_CROSS_ZERO_BUF == 1'b1)
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_IDLE;
+            else
+               PHASE_FALLING_NEXT_STATE <= PHASE_STATE_TYPE_DELTA;
+         default :
+            ;
+      endcase
+   end
+   
+   //PHASE TIME
+   always @(posedge CLK)
+   begin: PHASE_RISING_TIME
+        case (PHASE_RISING_PRESENT_STATE)
+           PHASE_STATE_TYPE_IDLE :
+              PHASE_RISING_COUNTER <= 16'b0000000000000000;
+           PHASE_STATE_TYPE_LEAD :
+              begin
+                 PHASE_RISING_COUNTER <= PHASE_RISING_COUNTER + 1'b1;
+                 I_V_LEAD_LAG_RISING <= 1'b0;
+              end
+           PHASE_STATE_TYPE_LAG :
+              begin
+                 PHASE_RISING_COUNTER <= PHASE_RISING_COUNTER + 1'b1;
+                 I_V_LEAD_LAG_RISING <= 1'b1;
+              end
+           PHASE_STATE_TYPE_DELTA :
+              PHASE_RISING_DIFF <= {I_V_LEAD_LAG_RISING, PHASE_RISING_COUNTER[14:0]};
+           default :
+              ;
+        endcase
+   end
+   
+   
+   always @(posedge CLK)
+   begin: PHASE_FALLING_TIME
+        case (PHASE_FALLING_PRESENT_STATE)
+           PHASE_STATE_TYPE_IDLE :
+              PHASE_FALLING_COUNTER <= 16'b0000000000000000;
+           PHASE_STATE_TYPE_LEAD :
+              begin
+                 PHASE_FALLING_COUNTER <= PHASE_FALLING_COUNTER + 1'b1;
+                 I_V_LEAD_LAG_FALLING <= 1'b0;
+              end
+           PHASE_STATE_TYPE_LAG :
+              begin
+                 PHASE_FALLING_COUNTER <= PHASE_FALLING_COUNTER + 1'b1;
+                 I_V_LEAD_LAG_FALLING <= 1'b1;
+              end
+           PHASE_STATE_TYPE_DELTA :
+              PHASE_FALLING_DIFF <= {I_V_LEAD_LAG_FALLING, PHASE_FALLING_COUNTER[14:0]};
+           default :
+              ;
+        endcase
+   end
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //RESONANCE LEVEL REF PWM
+   always @(posedge CLK or negedge CLR)
+   begin: CURRENT_LEVEL_PWM
+      if (!CLR)
+         tri_DATA_PWM <= 11'b00000000000;
+      else 
+      begin
+         if (tri_DATA_PWM == 11'b11111111111)
+         begin
+            tri_DATA_PWM <= 11'b00000000000;
+            CURRENT_REF_PWM <= 1'b0;
+         end
+         else if (tri_DATA_PWM == CURRENT_LEVEL_THRESHOLD[11:0])
+            CURRENT_REF_PWM <= 1'b1;
+         else
+            tri_DATA_PWM <= tri_DATA_PWM + 1'b1;
+         tri_DATA_PWM <= tri_DATA_PWM + 1'b1;
+      end
+   end
+   //xxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //PROCESS DATA FROM DSP	
+   always @(*)
+   begin: AUDIO_AP8942A
+      if (!CLR)
+      begin
+         Audio_Select <= 8'b00000000;
+         Audio_IRP <= 1'b0;
+         Audio_ShutDown <= 1'b0;
+      end
+      else
+      begin
+         Audio_Select <= Audio_Select_BUF;
+         Audio_IRP <= AUDIO_CONTROL_BUF[8];			//1//rest
+         Audio_ShutDown <= AUDIO_CONTROL_BUF[9];	 //1 //SHUTDOWN	
+      end
+   end
+   
+   //AUDIO CLOCK
+   reg [3:0]        AUDIO_COUNTER;
+   always @(negedge CLR or posedge CLK)
+   begin: AUDIO_CLOCK
+      if (!CLR)
+         AUDIO_COUNTER <= 0;
+      else 
+      begin
+         if (AUDIO_COUNTER == 4)
+         begin
+            AUDIO_COUNTER <= 0;
+            AUDIO_SPI_CLK <= (~AUDIO_SPI_CLK);
+         end
+         else
+            AUDIO_COUNTER <= AUDIO_COUNTER + 1;
+      end
+   end
+   
+   //AUDIO ATTENUATOR lm1971
+    reg [4:0]        AUDIO_SPI_COUNTER;
+   always @(negedge CLR or negedge AUDIO_SPI_CLK)
+   begin: AUDIO_ATTEN_SPI
+      if (!CLR)
+      begin
+         AUDIO_SPI_COUNTER <= 0;
+         AUDIO_LOAD_BUF <= 1'b1;
+         Audio_Atten <= 8'b11111111;
+      end
+      else 
+      begin
+         if (Audio_Atten == AUDIO_CONTROL_BUF[7:0])
+            AUDIO_SPI_COUNTER <= 0;
+         else
+         begin
+            AUDIO_SPI_COUNTER <= AUDIO_SPI_COUNTER + 1;
+            if (AUDIO_SPI_COUNTER == 20)
+               AUDIO_SPI_COUNTER <= 0;
+            else
+               ;
+            case (AUDIO_SPI_COUNTER)
+               1 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               2 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               3 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               4 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               5 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               6 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               7 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               8 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= 1'b0;
+                  end
+               9 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[7];
+                  end
+               10 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[6];
+                  end
+               11 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[5];
+                  end
+               12 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[4];
+                  end
+               13 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[3];
+                  end
+               14 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[2];
+                  end
+               15 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[1];
+                  end
+               16 :
+                  begin
+                     AUDIO_LOAD_BUF <= 1'b0;
+                     Audio_Atten_Data_BUF <= AUDIO_CONTROL_BUF[0];
+                  end
+               17 :
+                  AUDIO_LOAD_BUF <= 1'b1;
+               18 :
+                  Audio_Atten <= AUDIO_CONTROL_BUF[7:0];
+               default :
+                  AUDIO_LOAD_BUF <= 1'b1;
+            endcase
+         end
+      end
+   end
+   
+    assign Audio_Atten_Load = AUDIO_LOAD_BUF;
+    assign Audio_Atten_Data = Audio_Atten_Data_BUF;
+   
+   assign Audio_Atten_CLK = (AUDIO_LOAD_BUF == 1'b1) ? 1'b1 : 
+                            AUDIO_SPI_CLK;
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //CPLD WORK LED FLASH @1Hz
+   reg [23:0]       COUNTER_0;
+   always @(negedge CLR or posedge CLK)
+   begin: WORK_LED
+      if (!CLR)
+      begin
+         COUNTER_0 <= 0;
+         CPLD_WORK_LED_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (COUNTER_0 == 12499999)
+         begin
+            CPLD_WORK_LED_BUF <= (~CPLD_WORK_LED_BUF);
+            COUNTER_0 <= 0;
+         end
+         else
+            COUNTER_0 <= COUNTER_0 + 1;
+      end
+      
+   end
+   
+   assign CPLD_WORK_LED = CPLD_WORK_LED_BUF;
+   
+	//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  
+	////
+	////PANEL_LED
+   always @(*)
+   begin: PANEL_LED
+      if (!CLR)
+      begin
+         Panel_LED_RED <= 1'b1;
+         Panel_LED_GREEN <= 1'b1;
+         Panel_LED_YELLOW <= 1'b1;
+      end
+      else
+      begin
+         Panel_LED_RED <= PANEL_LED_RED_BUF;
+         Panel_LED_GREEN <= PANEL_LED_GREEN_BUF;
+         Panel_LED_YELLOW <= PANEL_LED_YELLOW_BUF;
+      end
+   end
+   
+   //PANEL SWITCH
+   reg [27:0]       KEY_COUNTER_0;
+   always @(negedge CLR or posedge CLK)
+   begin: PANEL_SWITCH
+      if (!CLR)
+      begin
+         KEY_COUNTER_0 <= 0;
+         PANEL_TOUCH_SW_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (nSW_Standby == 1'b1)		// WHEN PANEL_TOUCH_SWITCH IS NOT PRESSED
+         begin
+            KEY_COUNTER_0 <= 0;
+            PANEL_TOUCH_SW_BUF <= 1'b0;
+         end
+         else
+            if (KEY_COUNTER_0 == 99999999)
+            begin
+               KEY_COUNTER_0 = KEY_COUNTER_0;
+               PANEL_TOUCH_SW_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_0 = KEY_COUNTER_0 + 1;
+               PANEL_TOUCH_SW_BUF <= 1'b0;
+            end
+      end
+   end
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //FOOT SWITCH
+   reg [18:0]       KEY_COUNTER_1;
+   always @(negedge CLR or posedge CLK)
+   begin: FOOT1_MAX
+      if (!CLR)
+      begin
+         KEY_COUNTER_1 <= 0;
+         FootSwitch1_MAX_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (FootSwitch1_MAX == 1'b1)		// WHEN PANEL_TOUCH_SWITCH IS NOT PRESSED
+         begin
+            KEY_COUNTER_1 <= 0;
+            FootSwitch1_MAX_BUF <= 1'b0;
+         end
+         else
+            if (KEY_COUNTER_1 == 499999)
+            begin
+               KEY_COUNTER_1 <= KEY_COUNTER_1;
+               FootSwitch1_MAX_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_1 <= KEY_COUNTER_1 + 1;
+               FootSwitch1_MAX_BUF <= 1'b0;
+            end
+      end
+   end
+   //*********************************************
+   reg [18:0]       KEY_COUNTER_2;
+   always @(negedge CLR or posedge CLK)
+   begin: FOOT1_MIN
+      if (!CLR)
+      begin
+         KEY_COUNTER_2 <= 0;
+         FootSwitch1_MIN_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (FootSwitch1_MIN == 1'b1)		// WHEN PANEL_TOUCH_SWITCH IS NOT PRESSED
+         begin
+            KEY_COUNTER_2 <= 0;
+            FootSwitch1_MIN_BUF <= 1'b0;
+         end
+         else
+            if (KEY_COUNTER_2 == 499999)
+            begin
+               KEY_COUNTER_2 <= KEY_COUNTER_2;
+               FootSwitch1_MIN_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_2 <= KEY_COUNTER_2 + 1;
+               FootSwitch1_MIN_BUF <= 1'b0;
+            end
+      end
+   end
+   //*********************************************
+   reg [18:0]       KEY_COUNTER_3;
+   always @(negedge CLR or posedge CLK)
+   begin: FOOT2_MAX
+      if (!CLR)
+      begin
+         KEY_COUNTER_3 <= 0;
+         FootSwitch2_MAX_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (FootSwitch2_MAX == 1'b1)		// WHEN PANEL_TOUCH_SWITCH IS NOT PRESSED
+         begin
+            KEY_COUNTER_3 <= 0;
+            FootSwitch2_MAX_BUF <= 1'b0;
+         end
+         else
+            if (KEY_COUNTER_3 == 499999)
+            begin
+               KEY_COUNTER_3 <= KEY_COUNTER_3;
+               FootSwitch2_MAX_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_3 <= KEY_COUNTER_3 + 1;
+               FootSwitch2_MAX_BUF <= 1'b0;
+            end
+      end
+   end
+   //*********************************************
+    reg [18:0]       KEY_COUNTER_4;
+   always @(negedge CLR or posedge CLK)
+   begin: FOOT2_MIN
+      if (!CLR)
+      begin
+         KEY_COUNTER_4 <= 0;
+         FootSwitch2_MIN_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (FootSwitch2_MIN == 1'b1)		// WHEN PANEL_TOUCH_SWITCH IS NOT PRESSED
+         begin
+            KEY_COUNTER_4 <= 0;
+            FootSwitch2_MIN_BUF <= 1'b0;
+         end
+         else
+            if (KEY_COUNTER_4 == 499999)
+            begin
+               KEY_COUNTER_4 <= KEY_COUNTER_4;
+               FootSwitch2_MIN_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_4 <= KEY_COUNTER_4 + 1;
+               FootSwitch2_MIN_BUF <= 1'b0;
+            end
+      end
+   end
+   
+   always @(FootSwitch1_Detect or FOOtSwitch2_Detect)
+   begin: FOOTSW_DETECT
+      FOOtSwitch1_Detect_BUF <= (~FootSwitch1_Detect);
+      FOOtSwitch2_Detect_BUF <= (~FOOtSwitch2_Detect);
+   end
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //HP_TRANS_DRIVER  
+   reg [13:0]       COUNTER_1;
+   always @(negedge CLR or posedge CLK)
+   begin: HP_TRANSFORMER
+      if (!CLR)
+      begin
+         COUNTER_1 <= 0;
+         HP_TRANS_DRIVER_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (COUNTER_1 == 12499)
+         begin
+            HP_TRANS_DRIVER_BUF <= (~HP_TRANS_DRIVER_BUF);
+            COUNTER_1 <= 0;
+         end
+         else
+            COUNTER_1 <= COUNTER_1 + 1;
+      end
+   end
+   assign HP_TRANS_DRIVER = HP_TRANS_DRIVER_BUF;
+   
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   //HANDPIECE MIN AND MAX
+   reg [18:0]       KEY_COUNTER_5;
+   always @(negedge CLR or posedge CLK or negedge HP_SW_DETECT_LEVEL1)
+   begin: HANDPIECE_MAX
+      if (CLR == 1'b0 | HP_SW_DETECT_LEVEL1 == 1'b0)
+      begin
+         KEY_COUNTER_5 <= 0;
+         HP_MAX_DETECT_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (HP_SW_DETECT_LEVEL1 == 1'b1)
+         begin
+            if (KEY_COUNTER_5 == 499999)
+            begin
+               KEY_COUNTER_5 <= KEY_COUNTER_5;
+               HP_MAX_DETECT_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_5 <= KEY_COUNTER_5 + 1;
+               HP_MAX_DETECT_BUF <= 1'b0;
+            end
+         end
+      end
+   end
+   //*****************************************
+   reg [18:0]       KEY_COUNTER_6;
+   always @(negedge CLR or posedge CLK or negedge HP_SW_DETECT_LEVEL4)
+   begin: HANDPIECE_MIN
+      if (CLR == 1'b0 | HP_SW_DETECT_LEVEL4 == 1'b0)
+      begin
+         KEY_COUNTER_6 <= 0;
+         HP_MIN_DETECT_BUF <= 1'b0;
+      end
+      else 
+      begin
+         if (HP_SW_DETECT_LEVEL4 == 1'b1)
+         begin
+            if (KEY_COUNTER_6 == 499999)
+            begin
+               KEY_COUNTER_6 <= KEY_COUNTER_6;
+               HP_MIN_DETECT_BUF <= 1'b1;
+            end
+            else
+            begin
+               KEY_COUNTER_6 <= KEY_COUNTER_6 + 1;
+               HP_MIN_DETECT_BUF <= 1'b0;
+            end
+         end
+      end
+   end*/
+   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   always @(posedge CLK or negedge CLR)
+   begin: 
+      if (!CLR)
+      begin
+         CONF_DONE_IO138 <= 1'b0;
+      end
+      else
+      begin
+         CONF_DONE_IO138 <= 1'b0;
+      end
+   end
+   assign CPLD_WORK_LED = 1'b0;
+   assign TP21 = 1'b0;
+   
+endmodule

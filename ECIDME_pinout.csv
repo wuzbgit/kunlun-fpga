@@ -1,0 +1,80 @@
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+# Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+# File: F:\Project\project_vhdl2verilog\Project\ECIDME_Pro\pinout.csv
+# Generated on: Tue Jun 23 12:22:39 2020
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
+
+To,Direction,Location,I/O Bank
+altera_reserved_tms,Input,,
+altera_reserved_tdo,Output,,
+altera_reserved_tdi,Input,,
+altera_reserved_tck,Input,,
+nSW_Standby,Input,PIN_8,1A
+Panel_LED_YELLOW,Output,PIN_10,1A
+Panel_LED_RED,Output,PIN_11,1A
+Panel_LED_GREEN,Output,PIN_12,1A
+FootSwitch1_MAX,Input,PIN_6,1A
+FootSwitch1_Detect,Input,PIN_7,1A
+CLK,Input,PIN_27,2
+nXZCS0_DSP,Input,PIN_56,3
+nXWE0_DSP,Input,PIN_45,3
+nXRD_DSP,Input,PIN_52,3
+XDATA_DSP[0],Bidir,PIN_44,3
+XDATA_DSP[1],Bidir,PIN_43,3
+XDATA_DSP[2],Bidir,PIN_41,3
+XDATA_DSP[3],Bidir,PIN_39,3
+XDATA_DSP[4],Bidir,PIN_55,3
+XDATA_DSP[5],Bidir,PIN_54,3
+XDATA_DSP[6],Bidir,PIN_57,3
+XDATA_DSP[7],Bidir,PIN_58,3
+XDATA_DSP[8],Bidir,PIN_59,3
+XDATA_DSP[9],Bidir,PIN_60,3
+ADDR_DSP[0],Input,PIN_50,3
+ADDR_DSP[1],Input,PIN_48,3
+ADDR_DSP[2],Input,PIN_47,3
+ADDR_DSP[3],Input,PIN_46,3
+XDATA_DSP[10],Bidir,PIN_61,4
+XDATA_DSP[11],Bidir,PIN_62,4
+XDATA_DSP[12],Bidir,PIN_64,4
+XDATA_DSP[13],Bidir,PIN_65,4
+XDATA_DSP[14],Bidir,PIN_66,4
+XDATA_DSP[15],Bidir,PIN_69,4
+CPLD_WORK_LED,Output,PIN_70,4
+nHP_DETECT,Input,PIN_76,5
+V_CROSS_ZERO,Input,PIN_86,5
+SCITXDC_DSP,Input,PIN_75,5
+I_CROSS_ZERO,Input,PIN_85,5
+HP_TRANS_DRIVER,Output,PIN_84,5
+HP_SW_DETECT_LEVEL4,Input,PIN_78,5
+HP_SW_DETECT_LEVEL3,Input,PIN_79,5
+HP_SW_DETECT_LEVEL2,Input,PIN_80,5
+HP_SW_DETECT_LEVEL1,Input,PIN_81,5
+HP_DATA_WR,Output,PIN_77,5
+CURRENT_REF_PWM,Output,PIN_87,5
+CLR,Input,PIN_74,5
+RESONANCE_LEVEL_DETECT,Input,PIN_88,6
+nSINK_TEMP_CHECK,Input,PIN_130,8
+nPOWER_FAULT,Input,PIN_124,8
+nMOS_FAULT,Input,PIN_131,8
+TP21,Output,PIN_123,8
+Mos_Fault_Control,Output,PIN_127,8
+FootSwitch2_MIN,Input,PIN_135,8
+FootSwitch2_MAX,Input,PIN_140,8
+FootSwitch1_MIN,Input,PIN_141,8
+FOOtSwitch2_Detect,Input,PIN_134,8
+Buck_Enable,Output,PIN_132,8

@@ -1,0 +1,1632 @@
+TimeQuest Timing Analyzer report for ECIDME_Pro
+Tue Aug 04 16:44:15 2020
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Setup Times
+ 13. Hold Times
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Propagation Delay
+ 17. Minimum Propagation Delay
+ 18. Output Enable Times
+ 19. Minimum Output Enable Times
+ 20. Output Disable Times
+ 21. Minimum Output Disable Times
+ 22. Slow 1200mV 0C Model Fmax Summary
+ 23. Slow 1200mV 0C Model Setup Summary
+ 24. Slow 1200mV 0C Model Hold Summary
+ 25. Slow 1200mV 0C Model Recovery Summary
+ 26. Slow 1200mV 0C Model Removal Summary
+ 27. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Propagation Delay
+ 33. Minimum Propagation Delay
+ 34. Output Enable Times
+ 35. Minimum Output Enable Times
+ 36. Output Disable Times
+ 37. Minimum Output Disable Times
+ 38. Fast 1200mV 0C Model Setup Summary
+ 39. Fast 1200mV 0C Model Hold Summary
+ 40. Fast 1200mV 0C Model Recovery Summary
+ 41. Fast 1200mV 0C Model Removal Summary
+ 42. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 43. Setup Times
+ 44. Hold Times
+ 45. Clock to Output Times
+ 46. Minimum Clock to Output Times
+ 47. Propagation Delay
+ 48. Minimum Propagation Delay
+ 49. Output Enable Times
+ 50. Minimum Output Enable Times
+ 51. Output Disable Times
+ 52. Minimum Output Disable Times
+ 53. Multicorner Timing Analysis Summary
+ 54. Setup Times
+ 55. Hold Times
+ 56. Clock to Output Times
+ 57. Minimum Clock to Output Times
+ 58. Propagation Delay
+ 59. Minimum Propagation Delay
+ 60. Board Trace Model Assignments
+ 61. Input Transition Times
+ 62. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 63. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 64. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 65. Setup Transfers
+ 66. Hold Transfers
+ 67. Report TCCS
+ 68. Report RSKM
+ 69. Unconstrained Paths
+ 70. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                        ;
++--------------------+-----------------------------------------------------+
+; Quartus II Version ; Version 15.0.0 Build 145 04/22/2015 SJ Full Version ;
+; Revision Name      ; ECIDME_Pro                                          ;
+; Device Family      ; MAX 10                                              ;
+; Device Name        ; 10M08SAE144C8GES                                    ;
+; Timing Models      ; Preliminary                                         ;
+; Delay Model        ; Combined                                            ;
+; Rise/Fall Delays   ; Enabled                                             ;
++--------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------+
+; SDC File List                                      ;
++----------------+--------+--------------------------+
+; SDC File Path  ; Status ; Read at                  ;
++----------------+--------+--------------------------+
+; ECIDME_Pro.sdc ; OK     ; Tue Aug 04 16:44:14 2020 ;
++----------------+--------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; CLK        ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK } ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 182.38 MHz ; 182.38 MHz      ; CLK        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; CLK   ; 14.517 ; 0.000              ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; CLK   ; 0.459 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+-------+-----------------------------------+
+; Clock ; Slack ; End Point TNS                     ;
++-------+-------+-----------------------------------+
+; CLK   ; 9.773 ; 0.000                             ;
++-------+-------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Setup Times                                                                          ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; 2.586  ; 2.642  ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; 2.303  ; 2.249  ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; 2.079  ; 2.114  ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; 2.099  ; 2.140  ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; 2.586  ; 2.642  ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; 5.251  ; 5.273  ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; 6.394  ; 6.512  ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; 5.452  ; 5.492  ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; 6.027  ; 6.203  ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; 3.934  ; 3.777  ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; 3.869  ; 3.746  ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; 2.228  ; 2.134  ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; -0.400 ; -0.219 ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; 2.295  ; 2.267  ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; 3.015  ; 2.996  ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; 2.592  ; 2.571  ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; 2.407  ; 2.421  ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; 2.898  ; 2.955  ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; 2.897  ; 2.900  ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; 1.930  ; 1.927  ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; 1.959  ; 1.945  ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; 1.935  ; 1.927  ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; 1.971  ; 1.974  ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; 2.194  ; 2.224  ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; 2.066  ; 2.092  ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; 2.635  ; 2.676  ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; 2.328  ; 2.294  ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; 2.871  ; 2.841  ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; 2.535  ; 2.579  ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; 2.669  ; 2.717  ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; 3.015  ; 2.996  ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; 3.421  ; 3.405  ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; 2.358  ; 2.368  ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; 2.196  ; 2.240  ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; 6.539  ; 6.573  ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; 2.165  ; 2.191  ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; 2.413  ; 2.402  ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; 2.070  ; 2.084  ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------+
+; Hold Times                                                                           ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; -1.574 ; -1.605 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; -1.790 ; -1.735 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; -1.574 ; -1.605 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; -1.594 ; -1.630 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; -2.063 ; -2.114 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; -2.583 ; -2.594 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; -2.964 ; -3.008 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; -2.960 ; -3.001 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; -2.632 ; -2.704 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; -1.800 ; -1.770 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; -1.791 ; -1.798 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; -1.716 ; -1.623 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; 0.800  ; 0.618  ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; -1.782 ; -1.752 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; -1.433 ; -1.426 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; -2.069 ; -2.046 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; -1.891 ; -1.901 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; -2.361 ; -2.412 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; -2.365 ; -2.363 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; -1.433 ; -1.426 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; -1.461 ; -1.444 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; -1.438 ; -1.426 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; -1.473 ; -1.472 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; -1.685 ; -1.710 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; -1.561 ; -1.584 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; -2.108 ; -2.145 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; -1.815 ; -1.779 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; -2.336 ; -2.305 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; -2.014 ; -2.053 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; -2.145 ; -2.188 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; -2.473 ; -2.452 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; -2.852 ; -2.823 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; -1.831 ; -1.827 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; -1.661 ; -1.702 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; -2.708 ; -2.699 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; -1.656 ; -1.678 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; -1.897 ; -1.883 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; -1.566 ; -1.575 ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Clock to Output Times                                                           ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 8.112  ; 8.001  ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 8.685  ; 8.467  ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 7.984  ; 7.838  ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 8.323  ; 8.148  ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 7.280  ; 7.188  ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 14.309 ; 14.685 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 13.374 ; 13.014 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 13.193 ; 12.928 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 12.795 ; 12.604 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 13.581 ; 13.362 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 12.579 ; 12.354 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 12.650 ; 12.454 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 12.330 ; 12.073 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 12.700 ; 12.465 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 12.393 ; 12.187 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 12.109 ; 11.873 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 14.309 ; 14.685 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 13.093 ; 12.736 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 13.197 ; 12.927 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 12.112 ; 11.923 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 12.826 ; 12.546 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 12.136 ; 11.960 ; Rise       ; CLK             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                   ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 7.785  ; 7.676  ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 8.336  ; 8.124  ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 7.652  ; 7.509  ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 7.977  ; 7.806  ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 6.986  ; 6.896  ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 8.292  ; 7.988  ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 9.394  ; 9.087  ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 9.238  ; 8.943  ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 9.010  ; 8.812  ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 9.098  ; 8.842  ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 8.374  ; 8.097  ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 8.465  ; 8.219  ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 8.422  ; 8.145  ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 8.488  ; 8.204  ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 8.450  ; 8.176  ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 8.528  ; 8.288  ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 10.347 ; 10.718 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 8.858  ; 8.550  ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 9.418  ; 9.019  ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 8.292  ; 7.988  ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 8.979  ; 8.589  ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 8.316  ; 8.025  ; Rise       ; CLK             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++--------------------+--------------+--------+--------+--------+--------+
+; Input Port         ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
++--------------------+--------------+--------+--------+--------+--------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 12.604 ; 12.359 ; 12.661 ; 12.425 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 12.693 ; 12.482 ; 12.723 ; 12.466 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;        ; 6.629  ; 6.597  ;        ;
+; nHP_DETECT         ; XDATA_DSP[3] ;        ; 10.594 ; 10.782 ;        ;
++--------------------+--------------+--------+--------+--------+--------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Propagation Delay                                             ;
++--------------------+--------------+--------+--------+--------+--------+
+; Input Port         ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
++--------------------+--------------+--------+--------+--------+--------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 12.065 ; 11.827 ; 12.143 ; 11.914 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 12.146 ; 11.826 ; 12.138 ; 11.955 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;        ; 6.354  ; 6.322  ;        ;
+; nHP_DETECT         ; XDATA_DSP[3] ;        ; 10.130 ; 10.331 ;        ;
++--------------------+--------------+--------+--------+--------+--------+
+
+
++------------------------------------------------------------------------------+
+; Output Enable Times                                                          ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 12.432 ; 12.432 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 13.632 ; 13.632 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 13.264 ; 13.264 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 13.264 ; 13.264 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 13.688 ; 13.688 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 13.216 ; 13.216 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 13.249 ; 13.249 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 13.214 ; 13.214 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 13.224 ; 13.224 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 13.224 ; 13.224 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 13.505 ; 13.505 ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 13.382 ; 13.382 ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 13.372 ; 13.372 ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 13.093 ; 13.093 ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 13.093 ; 13.093 ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 13.093 ; 13.093 ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 12.432 ; 12.432 ; Rise       ; CLK             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Minimum Output Enable Times                                                  ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 9.491  ; 9.557  ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 10.644 ; 10.710 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 10.290 ; 10.356 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 10.290 ; 10.356 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 10.698 ; 10.764 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 10.244 ; 10.310 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 10.275 ; 10.341 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 10.242 ; 10.308 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 10.252 ; 10.318 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 10.252 ; 10.318 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 10.522 ; 10.588 ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 10.403 ; 10.469 ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 10.393 ; 10.459 ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 10.126 ; 10.192 ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 10.126 ; 10.192 ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 10.126 ; 10.192 ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 9.491  ; 9.557  ; Rise       ; CLK             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Output Disable Times                                                               ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 12.114    ; 12.251    ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 13.263    ; 13.400    ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 12.939    ; 13.076    ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 12.939    ; 13.076    ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 13.343    ; 13.480    ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 12.891    ; 13.028    ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 12.917    ; 13.054    ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 12.889    ; 13.026    ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 12.899    ; 13.036    ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 12.899    ; 13.036    ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 13.154    ; 13.291    ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 12.961    ; 13.098    ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 12.951    ; 13.088    ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 12.699    ; 12.836    ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 12.699    ; 12.836    ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 12.699    ; 12.836    ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 12.114    ; 12.251    ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                       ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 9.281     ; 9.281     ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 10.384    ; 10.384    ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 10.073    ; 10.073    ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 10.073    ; 10.073    ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 10.461    ; 10.461    ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 10.026    ; 10.026    ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 10.051    ; 10.051    ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 10.025    ; 10.025    ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 10.035    ; 10.035    ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 10.035    ; 10.035    ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 10.280    ; 10.280    ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 10.095    ; 10.095    ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 10.085    ; 10.085    ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 9.843     ; 9.843     ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 9.843     ; 9.843     ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 9.843     ; 9.843     ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 9.281     ; 9.281     ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 196.23 MHz ; 196.23 MHz      ; CLK        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; CLK   ; 14.904 ; 0.000             ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; CLK   ; 0.411 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+-------+----------------------------------+
+; Clock ; Slack ; End Point TNS                    ;
++-------+-------+----------------------------------+
+; CLK   ; 9.756 ; 0.000                            ;
++-------+-------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Setup Times                                                                          ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; 2.427  ; 2.348  ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; 2.162  ; 1.979  ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; 1.927  ; 1.865  ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; 1.951  ; 1.891  ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; 2.427  ; 2.348  ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; 4.838  ; 4.815  ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; 5.898  ; 5.968  ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; 5.076  ; 4.975  ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; 5.542  ; 5.693  ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; 3.703  ; 3.363  ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; 3.650  ; 3.330  ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; 2.105  ; 1.868  ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; -0.363 ; -0.132 ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; 2.162  ; 1.977  ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; 2.834  ; 2.647  ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; 2.414  ; 2.287  ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; 2.258  ; 2.136  ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; 2.722  ; 2.608  ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; 2.735  ; 2.566  ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; 1.802  ; 1.694  ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; 1.829  ; 1.711  ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; 1.810  ; 1.695  ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; 1.829  ; 1.737  ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; 2.053  ; 1.953  ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; 1.922  ; 1.845  ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; 2.472  ; 2.360  ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; 2.202  ; 2.022  ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; 2.703  ; 2.511  ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; 2.368  ; 2.281  ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; 2.488  ; 2.403  ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; 2.834  ; 2.647  ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; 3.209  ; 3.010  ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; 2.200  ; 2.082  ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; 2.044  ; 1.970  ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; 6.026  ; 6.024  ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; 2.020  ; 1.926  ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; 2.265  ; 2.114  ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; 1.924  ; 1.833  ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------+
+; Hold Times                                                                           ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; -1.468 ; -1.405 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; -1.694 ; -1.515 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; -1.468 ; -1.405 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; -1.491 ; -1.430 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; -1.949 ; -1.870 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; -2.407 ; -2.337 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; -2.795 ; -2.683 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; -2.795 ; -2.681 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; -2.479 ; -2.410 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; -1.696 ; -1.538 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; -1.701 ; -1.555 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; -1.636 ; -1.406 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; 0.728  ; 0.499  ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; -1.694 ; -1.513 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; -1.348 ; -1.241 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; -1.937 ; -1.812 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; -1.787 ; -1.667 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; -2.230 ; -2.117 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; -2.247 ; -2.081 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; -1.348 ; -1.241 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; -1.374 ; -1.258 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; -1.355 ; -1.242 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; -1.375 ; -1.283 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; -1.588 ; -1.489 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; -1.463 ; -1.386 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; -1.990 ; -1.879 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; -1.732 ; -1.556 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; -2.213 ; -2.026 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; -1.892 ; -1.805 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; -2.009 ; -1.925 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; -2.337 ; -2.155 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; -2.692 ; -2.483 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; -1.723 ; -1.592 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; -1.550 ; -1.488 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; -2.564 ; -2.404 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; -1.557 ; -1.463 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; -1.794 ; -1.645 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; -1.465 ; -1.374 ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Clock to Output Times                                                           ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 7.507  ; 7.264  ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 8.065  ; 7.675  ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 7.390  ; 7.114  ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 7.710  ; 7.394  ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 6.721  ; 6.535  ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 13.079 ; 13.188 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 12.491 ; 11.944 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 12.324 ; 11.894 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 11.976 ; 11.574 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 12.746 ; 12.310 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 11.793 ; 11.424 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 11.884 ; 11.556 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 11.544 ; 11.162 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 11.904 ; 11.549 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 11.560 ; 11.187 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 11.354 ; 10.972 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 13.079 ; 13.188 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 12.202 ; 11.612 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 12.354 ; 11.868 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 11.285 ; 10.935 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 11.961 ; 11.497 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 11.310 ; 10.967 ; Rise       ; CLK             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                 ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 7.195 ; 6.959 ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 7.731 ; 7.353 ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 7.071 ; 6.803 ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 7.378 ; 7.072 ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 6.440 ; 6.259 ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 7.684 ; 7.233 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 8.769 ; 8.230 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 8.568 ; 8.111 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 8.361 ; 7.957 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 8.463 ; 7.999 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 7.756 ; 7.329 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 7.836 ; 7.449 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 7.789 ; 7.379 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 7.856 ; 7.443 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 7.815 ; 7.413 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 7.894 ; 7.508 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 9.356 ; 9.522 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 8.200 ; 7.755 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 8.767 ; 8.161 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 7.684 ; 7.233 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 8.334 ; 7.774 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 7.707 ; 7.263 ; Rise       ; CLK             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++--------------------+--------------+--------+--------+--------+--------+
+; Input Port         ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
++--------------------+--------------+--------+--------+--------+--------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 11.666 ; 11.279 ; 11.654 ; 11.272 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 11.739 ; 11.395 ; 11.692 ; 11.310 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;        ; 6.052  ; 5.960  ;        ;
+; nHP_DETECT         ; XDATA_DSP[3] ;        ; 9.674  ; 9.904  ;        ;
++--------------------+--------------+--------+--------+--------+--------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Propagation Delay                                             ;
++--------------------+--------------+--------+--------+--------+--------+
+; Input Port         ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
++--------------------+--------------+--------+--------+--------+--------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 11.155 ; 10.780 ; 11.170 ; 10.799 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 11.224 ; 10.787 ; 11.147 ; 10.836 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;        ; 5.788  ; 5.700  ;        ;
+; nHP_DETECT         ; XDATA_DSP[3] ;        ; 9.243  ; 9.472  ;        ;
++--------------------+--------------+--------+--------+--------+--------+
+
+
++------------------------------------------------------------------------------+
+; Output Enable Times                                                          ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 11.436 ; 11.436 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 12.589 ; 12.589 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 12.231 ; 12.231 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 12.231 ; 12.231 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 12.650 ; 12.650 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 12.186 ; 12.186 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 12.221 ; 12.221 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 12.183 ; 12.183 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 12.193 ; 12.193 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 12.193 ; 12.193 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 12.472 ; 12.472 ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 12.363 ; 12.363 ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 12.353 ; 12.353 ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 12.073 ; 12.073 ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 12.073 ; 12.073 ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 12.073 ; 12.073 ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 11.436 ; 11.436 ; Rise       ; CLK             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Minimum Output Enable Times                                                  ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 8.921  ; 8.914  ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 10.027 ; 10.020 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 9.684  ; 9.677  ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 9.684  ; 9.677  ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 10.086 ; 10.079 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 9.640  ; 9.633  ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 9.674  ; 9.667  ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 9.638  ; 9.631  ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 9.648  ; 9.641  ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 9.648  ; 9.641  ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 9.915  ; 9.908  ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 9.811  ; 9.804  ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 9.801  ; 9.794  ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 9.532  ; 9.525  ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 9.532  ; 9.525  ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 9.532  ; 9.525  ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 8.921  ; 8.914  ; Rise       ; CLK             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Output Disable Times                                                               ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 11.049    ; 11.182    ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 12.072    ; 12.205    ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 11.784    ; 11.917    ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 11.784    ; 11.917    ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 12.153    ; 12.286    ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 11.742    ; 11.875    ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 11.764    ; 11.897    ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 11.738    ; 11.871    ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 11.748    ; 11.881    ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 11.748    ; 11.881    ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 11.973    ; 12.106    ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 11.803    ; 11.936    ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 11.793    ; 11.926    ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 11.567    ; 11.700    ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 11.567    ; 11.700    ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 11.567    ; 11.700    ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 11.049    ; 11.182    ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                       ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 8.664     ; 8.664     ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 9.646     ; 9.646     ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 9.370     ; 9.370     ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 9.370     ; 9.370     ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 9.725     ; 9.725     ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 9.329     ; 9.329     ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 9.350     ; 9.350     ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 9.325     ; 9.325     ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 9.335     ; 9.335     ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 9.335     ; 9.335     ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 9.552     ; 9.552     ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 9.388     ; 9.388     ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 9.378     ; 9.378     ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 9.162     ; 9.162     ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 9.162     ; 9.162     ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 9.162     ; 9.162     ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 8.664     ; 8.664     ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; CLK   ; 17.863 ; 0.000             ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; CLK   ; 0.151 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+-------+----------------------------------+
+; Clock ; Slack ; End Point TNS                    ;
++-------+-------+----------------------------------+
+; CLK   ; 9.443 ; 0.000                            ;
++-------+-------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Times                                                                         ;
++------------------------+------------+--------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+-------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; 1.020  ; 1.528 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; 0.830  ; 1.285 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; 0.755  ; 1.202 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; 0.766  ; 1.219 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; 1.020  ; 1.528 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; 2.157  ; 2.552 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; 2.479  ; 2.893 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; 2.096  ; 2.563 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; 2.333  ; 2.735 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; 1.416  ; 1.897 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; 1.389  ; 1.872 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; 0.791  ; 1.233 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; -0.156 ; 0.155 ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; 0.824  ; 1.290 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; 1.115  ; 1.623 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; 0.985  ; 1.484 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; 0.908  ; 1.378 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; 1.079  ; 1.584 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; 1.101  ; 1.601 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; 0.693  ; 1.132 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; 0.698  ; 1.141 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; 0.690  ; 1.130 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; 0.720  ; 1.157 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; 0.793  ; 1.248 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; 0.744  ; 1.182 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; 0.966  ; 1.458 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; 0.840  ; 1.313 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; 1.081  ; 1.582 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; 0.962  ; 1.455 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; 0.990  ; 1.477 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; 1.115  ; 1.623 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; 1.289  ; 1.798 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; 0.845  ; 1.297 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; 0.778  ; 1.230 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; 2.528  ; 2.899 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; 0.760  ; 1.224 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; 0.888  ; 1.355 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; 0.740  ; 1.171 ; Rise       ; CLK             ;
++------------------------+------------+--------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------+
+; Hold Times                                                                           ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; -0.570 ; -1.010 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; -0.642 ; -1.090 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; -0.570 ; -1.010 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; -0.580 ; -1.026 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; -0.825 ; -1.324 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; -1.034 ; -1.508 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; -1.129 ; -1.619 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; -1.128 ; -1.616 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; -0.983 ; -1.462 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; -0.676 ; -1.122 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; -0.664 ; -1.125 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; -0.605 ; -1.040 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; 0.303  ; -0.015 ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; -0.639 ; -1.096 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; -0.508 ; -0.942 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; -0.793 ; -1.284 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; -0.718 ; -1.180 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; -0.880 ; -1.375 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; -0.904 ; -1.396 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; -0.511 ; -0.944 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; -0.516 ; -0.952 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; -0.508 ; -0.942 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; -0.538 ; -0.968 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; -0.605 ; -1.052 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; -0.558 ; -0.989 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; -0.772 ; -1.254 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; -0.652 ; -1.118 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; -0.884 ; -1.376 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; -0.770 ; -1.254 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; -0.796 ; -1.274 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; -0.915 ; -1.413 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; -1.073 ; -1.576 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; -0.647 ; -1.095 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; -0.586 ; -1.029 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; -1.015 ; -1.479 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; -0.573 ; -1.029 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; -0.698 ; -1.159 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; -0.554 ; -0.979 ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Clock to Output Times                                                         ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 3.362 ; 3.480 ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 3.608 ; 3.746 ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 3.336 ; 3.441 ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 3.472 ; 3.593 ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 3.029 ; 3.100 ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 6.079 ; 6.453 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 5.410 ; 5.568 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 5.406 ; 5.544 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 5.179 ; 5.326 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 5.474 ; 5.600 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 5.098 ; 5.204 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 5.170 ; 5.284 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 5.044 ; 5.146 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 5.194 ; 5.295 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 5.064 ; 5.165 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 4.919 ; 5.016 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 6.079 ; 6.453 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 5.278 ; 5.488 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 5.375 ; 5.513 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 4.958 ; 4.995 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 5.242 ; 5.307 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 4.962 ; 5.007 ; Rise       ; CLK             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                 ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 3.249 ; 3.362 ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 3.485 ; 3.617 ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 3.217 ; 3.317 ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 3.347 ; 3.463 ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 2.929 ; 2.997 ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 3.390 ; 3.484 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 3.806 ; 3.971 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 3.784 ; 3.925 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 3.655 ; 3.804 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 3.696 ; 3.825 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 3.390 ; 3.484 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 3.467 ; 3.569 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 3.451 ; 3.537 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 3.488 ; 3.578 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 3.475 ; 3.560 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 3.455 ; 3.556 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 4.529 ; 4.816 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 3.636 ; 3.747 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 3.840 ; 3.970 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 3.409 ; 3.492 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 3.684 ; 3.793 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 3.414 ; 3.504 ; Rise       ; CLK             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Propagation Delay                                                 ;
++--------------------+--------------+-------+-------+-------+-------+
+; Input Port         ; Output Port  ; RR    ; RF    ; FR    ; FF    ;
++--------------------+--------------+-------+-------+-------+-------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 5.054 ; 5.151 ; 5.464 ; 5.567 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 5.118 ; 5.220 ; 5.501 ; 5.585 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;       ; 2.782 ; 3.162 ;       ;
+; nHP_DETECT         ; XDATA_DSP[3] ;       ; 4.517 ; 4.869 ;       ;
++--------------------+--------------+-------+-------+-------+-------+
+
+
++-------------------------------------------------------------------+
+; Minimum Propagation Delay                                         ;
++--------------------+--------------+-------+-------+-------+-------+
+; Input Port         ; Output Port  ; RR    ; RF    ; FR    ; FF    ;
++--------------------+--------------+-------+-------+-------+-------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 4.863 ; 4.955 ; 5.277 ; 5.375 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 4.926 ; 4.986 ; 5.290 ; 5.394 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;       ; 2.688 ; 3.067 ;       ;
+; nHP_DETECT         ; XDATA_DSP[3] ;       ; 4.348 ; 4.705 ;       ;
++--------------------+--------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------------------------+
+; Output Enable Times                                                        ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 5.998 ; 5.995 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 6.473 ; 6.470 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 6.352 ; 6.349 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 6.352 ; 6.349 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 6.526 ; 6.523 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 6.319 ; 6.316 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 6.331 ; 6.328 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 6.316 ; 6.313 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 6.326 ; 6.323 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 6.326 ; 6.323 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 6.418 ; 6.415 ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 6.367 ; 6.364 ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 6.357 ; 6.354 ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 6.248 ; 6.245 ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 6.248 ; 6.245 ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 6.248 ; 6.245 ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 5.998 ; 5.995 ; Rise       ; CLK             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Output Enable Times                                                ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 4.231 ; 4.231 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 4.686 ; 4.686 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 4.570 ; 4.570 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 4.570 ; 4.570 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 4.738 ; 4.738 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 4.538 ; 4.538 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 4.550 ; 4.550 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 4.535 ; 4.535 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 4.545 ; 4.545 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 4.545 ; 4.545 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 4.633 ; 4.633 ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 4.585 ; 4.585 ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 4.575 ; 4.575 ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 4.470 ; 4.470 ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 4.470 ; 4.470 ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 4.470 ; 4.470 ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 4.231 ; 4.231 ; Rise       ; CLK             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Output Disable Times                                                               ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 6.045     ; 6.045     ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 6.596     ; 6.596     ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 6.455     ; 6.455     ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 6.455     ; 6.455     ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 6.661     ; 6.661     ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 6.420     ; 6.420     ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 6.434     ; 6.434     ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 6.417     ; 6.417     ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 6.427     ; 6.427     ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 6.427     ; 6.427     ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 6.539     ; 6.539     ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 6.455     ; 6.455     ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 6.445     ; 6.445     ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 6.320     ; 6.320     ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 6.320     ; 6.320     ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 6.320     ; 6.320     ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 6.045     ; 6.045     ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                       ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; Data Port      ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++----------------+------------+-----------+-----------+------------+-----------------+
+; XDATA_DSP[*]   ; CLK        ; 4.248     ; 4.314     ; Rise       ; CLK             ;
+;  XDATA_DSP[0]  ; CLK        ; 4.777     ; 4.843     ; Rise       ; CLK             ;
+;  XDATA_DSP[1]  ; CLK        ; 4.641     ; 4.707     ; Rise       ; CLK             ;
+;  XDATA_DSP[2]  ; CLK        ; 4.641     ; 4.707     ; Rise       ; CLK             ;
+;  XDATA_DSP[3]  ; CLK        ; 4.840     ; 4.906     ; Rise       ; CLK             ;
+;  XDATA_DSP[4]  ; CLK        ; 4.608     ; 4.674     ; Rise       ; CLK             ;
+;  XDATA_DSP[5]  ; CLK        ; 4.621     ; 4.687     ; Rise       ; CLK             ;
+;  XDATA_DSP[6]  ; CLK        ; 4.605     ; 4.671     ; Rise       ; CLK             ;
+;  XDATA_DSP[7]  ; CLK        ; 4.615     ; 4.681     ; Rise       ; CLK             ;
+;  XDATA_DSP[8]  ; CLK        ; 4.615     ; 4.681     ; Rise       ; CLK             ;
+;  XDATA_DSP[9]  ; CLK        ; 4.722     ; 4.788     ; Rise       ; CLK             ;
+;  XDATA_DSP[10] ; CLK        ; 4.642     ; 4.708     ; Rise       ; CLK             ;
+;  XDATA_DSP[11] ; CLK        ; 4.632     ; 4.698     ; Rise       ; CLK             ;
+;  XDATA_DSP[12] ; CLK        ; 4.513     ; 4.579     ; Rise       ; CLK             ;
+;  XDATA_DSP[13] ; CLK        ; 4.513     ; 4.579     ; Rise       ; CLK             ;
+;  XDATA_DSP[14] ; CLK        ; 4.513     ; 4.579     ; Rise       ; CLK             ;
+;  XDATA_DSP[15] ; CLK        ; 4.248     ; 4.314     ; Rise       ; CLK             ;
++----------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 14.517 ; 0.151 ; N/A      ; N/A     ; 9.443               ;
+;  CLK             ; 14.517 ; 0.151 ; N/A      ; N/A     ; 9.443               ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  CLK             ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Times                                                                         ;
++------------------------+------------+--------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+-------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; 2.586  ; 2.642 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; 2.303  ; 2.249 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; 2.079  ; 2.114 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; 2.099  ; 2.140 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; 2.586  ; 2.642 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; 5.251  ; 5.273 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; 6.394  ; 6.512 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; 5.452  ; 5.492 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; 6.027  ; 6.203 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; 3.934  ; 3.777 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; 3.869  ; 3.746 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; 2.228  ; 2.134 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; -0.156 ; 0.155 ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; 2.295  ; 2.267 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; 3.015  ; 2.996 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; 2.592  ; 2.571 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; 2.407  ; 2.421 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; 2.898  ; 2.955 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; 2.897  ; 2.900 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; 1.930  ; 1.927 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; 1.959  ; 1.945 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; 1.935  ; 1.927 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; 1.971  ; 1.974 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; 2.194  ; 2.224 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; 2.066  ; 2.092 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; 2.635  ; 2.676 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; 2.328  ; 2.294 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; 2.871  ; 2.841 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; 2.535  ; 2.579 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; 2.669  ; 2.717 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; 3.015  ; 2.996 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; 3.421  ; 3.405 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; 2.358  ; 2.368 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; 2.196  ; 2.240 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; 6.539  ; 6.573 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; 2.165  ; 2.191 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; 2.413  ; 2.402 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; 2.070  ; 2.084 ; Rise       ; CLK             ;
++------------------------+------------+--------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------+
+; Hold Times                                                                           ;
++------------------------+------------+--------+--------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------------+------------+--------+--------+------------+-----------------+
+; ADDR_DSP[*]            ; CLK        ; -0.570 ; -1.010 ; Rise       ; CLK             ;
+;  ADDR_DSP[0]           ; CLK        ; -0.642 ; -1.090 ; Rise       ; CLK             ;
+;  ADDR_DSP[1]           ; CLK        ; -0.570 ; -1.010 ; Rise       ; CLK             ;
+;  ADDR_DSP[2]           ; CLK        ; -0.580 ; -1.026 ; Rise       ; CLK             ;
+;  ADDR_DSP[3]           ; CLK        ; -0.825 ; -1.324 ; Rise       ; CLK             ;
+; FootSwitch1_MAX        ; CLK        ; -1.034 ; -1.508 ; Rise       ; CLK             ;
+; FootSwitch1_MIN        ; CLK        ; -1.129 ; -1.619 ; Rise       ; CLK             ;
+; FootSwitch2_MAX        ; CLK        ; -1.128 ; -1.616 ; Rise       ; CLK             ;
+; FootSwitch2_MIN        ; CLK        ; -0.983 ; -1.462 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL1    ; CLK        ; -0.676 ; -1.122 ; Rise       ; CLK             ;
+; HP_SW_DETECT_LEVEL4    ; CLK        ; -0.664 ; -1.125 ; Rise       ; CLK             ;
+; I_CROSS_ZERO           ; CLK        ; -0.605 ; -1.040 ; Rise       ; CLK             ;
+; RESONANCE_LEVEL_DETECT ; CLK        ; 0.800  ; 0.618  ; Rise       ; CLK             ;
+; V_CROSS_ZERO           ; CLK        ; -0.639 ; -1.096 ; Rise       ; CLK             ;
+; XDATA_DSP[*]           ; CLK        ; -0.508 ; -0.942 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]          ; CLK        ; -0.793 ; -1.284 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]          ; CLK        ; -0.718 ; -1.180 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]          ; CLK        ; -0.880 ; -1.375 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]          ; CLK        ; -0.904 ; -1.396 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]          ; CLK        ; -0.511 ; -0.944 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]          ; CLK        ; -0.516 ; -0.952 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]          ; CLK        ; -0.508 ; -0.942 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]          ; CLK        ; -0.538 ; -0.968 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]          ; CLK        ; -0.605 ; -1.052 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]          ; CLK        ; -0.558 ; -0.989 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]         ; CLK        ; -0.772 ; -1.254 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]         ; CLK        ; -0.652 ; -1.118 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]         ; CLK        ; -0.884 ; -1.376 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]         ; CLK        ; -0.770 ; -1.254 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]         ; CLK        ; -0.796 ; -1.274 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]         ; CLK        ; -0.915 ; -1.413 ; Rise       ; CLK             ;
+; nMOS_FAULT             ; CLK        ; -1.073 ; -1.576 ; Rise       ; CLK             ;
+; nPOWER_FAULT           ; CLK        ; -0.647 ; -1.095 ; Rise       ; CLK             ;
+; nSINK_TEMP_CHECK       ; CLK        ; -0.586 ; -1.029 ; Rise       ; CLK             ;
+; nSW_Standby            ; CLK        ; -1.015 ; -1.479 ; Rise       ; CLK             ;
+; nXRD_DSP               ; CLK        ; -0.573 ; -1.029 ; Rise       ; CLK             ;
+; nXWE0_DSP              ; CLK        ; -0.698 ; -1.159 ; Rise       ; CLK             ;
+; nXZCS0_DSP             ; CLK        ; -0.554 ; -0.979 ; Rise       ; CLK             ;
++------------------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Clock to Output Times                                                           ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 8.112  ; 8.001  ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 8.685  ; 8.467  ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 7.984  ; 7.838  ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 8.323  ; 8.148  ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 7.280  ; 7.188  ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 14.309 ; 14.685 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 13.374 ; 13.014 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 13.193 ; 12.928 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 12.795 ; 12.604 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 13.581 ; 13.362 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 12.579 ; 12.354 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 12.650 ; 12.454 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 12.330 ; 12.073 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 12.700 ; 12.465 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 12.393 ; 12.187 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 12.109 ; 11.873 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 14.309 ; 14.685 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 13.093 ; 12.736 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 13.197 ; 12.927 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 12.112 ; 11.923 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 12.826 ; 12.546 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 12.136 ; 11.960 ; Rise       ; CLK             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                 ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Buck_Enable       ; CLK        ; 3.249 ; 3.362 ; Rise       ; CLK             ;
+; CPLD_WORK_LED     ; CLK        ; 3.485 ; 3.617 ; Rise       ; CLK             ;
+; CURRENT_REF_PWM   ; CLK        ; 3.217 ; 3.317 ; Rise       ; CLK             ;
+; HP_TRANS_DRIVER   ; CLK        ; 3.347 ; 3.463 ; Rise       ; CLK             ;
+; Mos_Fault_Control ; CLK        ; 2.929 ; 2.997 ; Rise       ; CLK             ;
+; XDATA_DSP[*]      ; CLK        ; 3.390 ; 3.484 ; Rise       ; CLK             ;
+;  XDATA_DSP[0]     ; CLK        ; 3.806 ; 3.971 ; Rise       ; CLK             ;
+;  XDATA_DSP[1]     ; CLK        ; 3.784 ; 3.925 ; Rise       ; CLK             ;
+;  XDATA_DSP[2]     ; CLK        ; 3.655 ; 3.804 ; Rise       ; CLK             ;
+;  XDATA_DSP[3]     ; CLK        ; 3.696 ; 3.825 ; Rise       ; CLK             ;
+;  XDATA_DSP[4]     ; CLK        ; 3.390 ; 3.484 ; Rise       ; CLK             ;
+;  XDATA_DSP[5]     ; CLK        ; 3.467 ; 3.569 ; Rise       ; CLK             ;
+;  XDATA_DSP[6]     ; CLK        ; 3.451 ; 3.537 ; Rise       ; CLK             ;
+;  XDATA_DSP[7]     ; CLK        ; 3.488 ; 3.578 ; Rise       ; CLK             ;
+;  XDATA_DSP[8]     ; CLK        ; 3.475 ; 3.560 ; Rise       ; CLK             ;
+;  XDATA_DSP[9]     ; CLK        ; 3.455 ; 3.556 ; Rise       ; CLK             ;
+;  XDATA_DSP[10]    ; CLK        ; 4.529 ; 4.816 ; Rise       ; CLK             ;
+;  XDATA_DSP[11]    ; CLK        ; 3.636 ; 3.747 ; Rise       ; CLK             ;
+;  XDATA_DSP[12]    ; CLK        ; 3.840 ; 3.970 ; Rise       ; CLK             ;
+;  XDATA_DSP[13]    ; CLK        ; 3.409 ; 3.492 ; Rise       ; CLK             ;
+;  XDATA_DSP[14]    ; CLK        ; 3.684 ; 3.793 ; Rise       ; CLK             ;
+;  XDATA_DSP[15]    ; CLK        ; 3.414 ; 3.504 ; Rise       ; CLK             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++--------------------+--------------+--------+--------+--------+--------+
+; Input Port         ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
++--------------------+--------------+--------+--------+--------+--------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 12.604 ; 12.359 ; 12.661 ; 12.425 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 12.693 ; 12.482 ; 12.723 ; 12.466 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;        ; 6.629  ; 6.597  ;        ;
+; nHP_DETECT         ; XDATA_DSP[3] ;        ; 10.594 ; 10.782 ;        ;
++--------------------+--------------+--------+--------+--------+--------+
+
+
++-------------------------------------------------------------------+
+; Minimum Propagation Delay                                         ;
++--------------------+--------------+-------+-------+-------+-------+
+; Input Port         ; Output Port  ; RR    ; RF    ; FR    ; FF    ;
++--------------------+--------------+-------+-------+-------+-------+
+; FOOtSwitch2_Detect ; XDATA_DSP[9] ; 4.863 ; 4.955 ; 5.277 ; 5.375 ;
+; FootSwitch1_Detect ; XDATA_DSP[6] ; 4.926 ; 4.986 ; 5.290 ; 5.394 ;
+; SCITXDC_DSP        ; HP_DATA_WR   ;       ; 2.688 ; 3.067 ;       ;
+; nHP_DETECT         ; XDATA_DSP[3] ;       ; 4.348 ; 4.705 ;       ;
++--------------------+--------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                        ;
++-------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin               ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++-------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Buck_Enable       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Mos_Fault_Control ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; CURRENT_REF_PWM   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Panel_LED_YELLOW  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Panel_LED_GREEN   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Panel_LED_RED     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HP_DATA_WR        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HP_TRANS_DRIVER   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; CPLD_WORK_LED     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; TP21              ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[2]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[3]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[4]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[5]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[6]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[7]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[8]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[9]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[10]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[11]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[12]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[13]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[14]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; XDATA_DSP[15]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_TDO~      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++-------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++------------------------------------------------------------------------------------+
+; Input Transition Times                                                             ;
++------------------------+-----------------------+-----------------+-----------------+
+; Pin                    ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
++------------------------+-----------------------+-----------------+-----------------+
+; HP_SW_DETECT_LEVEL2    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; HP_SW_DETECT_LEVEL3    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[0]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[1]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[2]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[3]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[4]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[5]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[6]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[7]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[8]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[9]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[10]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[11]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[12]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[13]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[14]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; XDATA_DSP[15]          ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; SCITXDC_DSP            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; CLK                    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; CLR                    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nPOWER_FAULT           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nMOS_FAULT             ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nHP_DETECT             ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FootSwitch1_Detect     ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FOOtSwitch2_Detect     ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nXWE0_DSP              ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nSW_Standby            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; HP_SW_DETECT_LEVEL1    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; HP_SW_DETECT_LEVEL4    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nSINK_TEMP_CHECK       ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; RESONANCE_LEVEL_DETECT ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FootSwitch1_MAX        ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FootSwitch1_MIN        ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FootSwitch2_MAX        ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; FootSwitch2_MIN        ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ADDR_DSP[3]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nXZCS0_DSP             ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ADDR_DSP[0]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ADDR_DSP[1]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ADDR_DSP[2]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; nXRD_DSP               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; V_CROSS_ZERO           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I_CROSS_ZERO           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_TMS~           ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_TCK~           ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_TDI~           ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_CONFIG_SEL~    ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_nCONFIG~       ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_nSTATUS~       ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_CONF_DONE~     ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
++------------------------+-----------------------+-----------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin               ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Buck_Enable       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; Mos_Fault_Control ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; CURRENT_REF_PWM   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; Panel_LED_YELLOW  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; Panel_LED_GREEN   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; Panel_LED_RED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; HP_DATA_WR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; HP_TRANS_DRIVER   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; CPLD_WORK_LED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0512 V           ; 0.138 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0512 V          ; 0.138 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; TP21              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.33 V              ; -0.00437 V          ; 0.227 V                              ; 0.225 V                              ; 4.84e-09 s                  ; 6.16e-09 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.33 V             ; -0.00437 V         ; 0.227 V                             ; 0.225 V                             ; 4.84e-09 s                 ; 6.16e-09 s                 ; No                        ; No                        ;
+; XDATA_DSP[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[3]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[4]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[5]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[6]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[7]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[8]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[9]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[10]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.33 V              ; -0.00425 V          ; 0.226 V                              ; 0.224 V                              ; 4.84e-09 s                  ; 6.16e-09 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.33 V             ; -0.00425 V         ; 0.226 V                             ; 0.224 V                             ; 4.84e-09 s                 ; 6.16e-09 s                 ; No                        ; No                        ;
+; XDATA_DSP[11]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[12]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[13]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[14]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; XDATA_DSP[15]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.14e-09 V                   ; 2.38 V              ; -0.0516 V           ; 0.139 V                              ; 0.174 V                              ; 6.45e-10 s                  ; 8.56e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 7.14e-09 V                  ; 2.38 V             ; -0.0516 V          ; 0.139 V                             ; 0.174 V                             ; 6.45e-10 s                 ; 8.56e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_TDO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.97e-09 V                   ; 2.36 V              ; -0.0426 V           ; 0.231 V                              ; 0.219 V                              ; 6.9e-10 s                   ; 8.54e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 8.97e-09 V                  ; 2.36 V             ; -0.0426 V          ; 0.231 V                             ; 0.219 V                             ; 6.9e-10 s                  ; 8.54e-10 s                 ; No                        ; No                        ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin               ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Buck_Enable       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; Mos_Fault_Control ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; CURRENT_REF_PWM   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; Panel_LED_YELLOW  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; Panel_LED_GREEN   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; Panel_LED_RED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; HP_DATA_WR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; HP_TRANS_DRIVER   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; CPLD_WORK_LED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.88e-07 V                   ; 2.35 V              ; -0.0328 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.88e-07 V                  ; 2.35 V             ; -0.0328 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; TP21              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.33 V              ; -0.00231 V          ; 0.197 V                              ; 0.149 V                              ; 5.76e-09 s                  ; 7.28e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.87e-07 V                  ; 2.33 V             ; -0.00231 V         ; 0.197 V                             ; 0.149 V                             ; 5.76e-09 s                 ; 7.28e-09 s                 ; Yes                       ; Yes                       ;
+; XDATA_DSP[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[3]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[4]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[5]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[6]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[7]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[8]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[9]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[10]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.33 V              ; -0.00237 V          ; 0.226 V                              ; 0.215 V                              ; 5.76e-09 s                  ; 7.28e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.87e-07 V                  ; 2.33 V             ; -0.00237 V         ; 0.226 V                             ; 0.215 V                             ; 5.76e-09 s                 ; 7.28e-09 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[11]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[12]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[13]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[14]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; XDATA_DSP[15]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.87e-07 V                   ; 2.35 V              ; -0.0324 V           ; 0.21 V                               ; 0.138 V                              ; 6.95e-10 s                  ; 1.02e-09 s                  ; Yes                        ; No                         ; 2.32 V                      ; 7.87e-07 V                  ; 2.35 V             ; -0.0324 V          ; 0.21 V                              ; 0.138 V                             ; 6.95e-10 s                 ; 1.02e-09 s                 ; Yes                       ; No                        ;
+; ~ALTERA_TDO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.02e-06 V                   ; 2.35 V              ; -0.0203 V           ; 0.196 V                              ; 0.192 V                              ; 8.8e-10 s                   ; 1.03e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.02e-06 V                  ; 2.35 V             ; -0.0203 V          ; 0.196 V                             ; 0.192 V                             ; 8.8e-10 s                  ; 1.03e-09 s                 ; Yes                       ; Yes                       ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin               ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Buck_Enable       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; Mos_Fault_Control ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; CURRENT_REF_PWM   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; Panel_LED_YELLOW  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; Panel_LED_GREEN   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; Panel_LED_RED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; HP_DATA_WR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; HP_TRANS_DRIVER   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; CPLD_WORK_LED     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.022 V            ; 0.337 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.022 V           ; 0.337 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; TP21              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.64 V              ; -0.00853 V          ; 0.231 V                              ; 0.253 V                              ; 3.08e-09 s                  ; 3.62e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.64 V             ; -0.00853 V         ; 0.231 V                             ; 0.253 V                             ; 3.08e-09 s                 ; 3.62e-09 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[3]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[4]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[5]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[6]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[7]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[8]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[9]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[10]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.64 V              ; -0.00857 V          ; 0.223 V                              ; 0.253 V                              ; 3.1e-09 s                   ; 3.62e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.64 V             ; -0.00857 V         ; 0.223 V                             ; 0.253 V                             ; 3.1e-09 s                  ; 3.62e-09 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[11]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[12]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[13]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[14]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; XDATA_DSP[15]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.4e-07 V                    ; 2.76 V              ; -0.0219 V           ; 0.338 V                              ; 0.036 V                              ; 2.94e-10 s                  ; 4.52e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.4e-07 V                   ; 2.76 V             ; -0.0219 V          ; 0.338 V                             ; 0.036 V                             ; 2.94e-10 s                 ; 4.52e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_TDO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.94e-07 V                   ; 2.72 V              ; -0.0267 V           ; 0.222 V                              ; 0.078 V                              ; 4.6e-10 s                   ; 5e-10 s                     ; No                         ; Yes                        ; 2.62 V                      ; 1.94e-07 V                  ; 2.72 V             ; -0.0267 V          ; 0.222 V                             ; 0.078 V                             ; 4.6e-10 s                  ; 5e-10 s                    ; No                        ; Yes                       ;
++-------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 6376     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 6376     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 41    ; 41   ;
+; Unconstrained Input Port Paths  ; 435   ; 435  ;
+; Unconstrained Output Ports      ; 22    ; 22   ;
+; Unconstrained Output Port Paths ; 158   ; 158  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+    Info: Processing started: Tue Aug 04 16:44:13 2020
+Info: Command: quartus_sta ECIDME_Pro -c ECIDME_Pro
+Info: qsta_default_script.tcl version: #11
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'ECIDME_Pro.sdc'
+Warning (332174): Ignored filter at ECIDME_Pro.sdc(42): altera_reserved_tck could not be matched with a port
+Warning (332049): Ignored create_clock at ECIDME_Pro.sdc(42): Argument <targets> is an empty collection
+    Info (332050): create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
+Warning (332174): Ignored filter at ECIDME_Pro.sdc(93): altera_reserved_tck could not be matched with a clock
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From CLK (Rise) to CLK (Rise) (setup and hold)
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Info (332146): Worst-case setup slack is 14.517
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    14.517               0.000 CLK 
+Info (332146): Worst-case hold slack is 0.459
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.459               0.000 CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.773
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.773               0.000 CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Warning (334000): Timing characteristics of device 10M08SAE144C8GES are preliminary
+Info (334004): Delay annotation completed successfully
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From CLK (Rise) to CLK (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 14.904
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    14.904               0.000 CLK 
+Info (332146): Worst-case hold slack is 0.411
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.411               0.000 CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.756
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.756               0.000 CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast 1200mV 0C Model
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From CLK (Rise) to CLK (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 17.863
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    17.863               0.000 CLK 
+Info (332146): Worst-case hold slack is 0.151
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.151               0.000 CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.443
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.443               0.000 CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 715 megabytes
+    Info: Processing ended: Tue Aug 04 16:44:15 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
+
+
